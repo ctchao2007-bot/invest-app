@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>投資心理實驗</title>
+<style>
+body { font-family: Arial; padding: 20px; text-align: center; }
+input { margin: 10px; padding: 5px; }
+button { padding: 8px 15px; margin: 5px; }
+.coin { font-size: 60px; margin: 20px; }
+</style>
+</head>
+
+<body>
+
+<h2>投資心理實驗</h2>
+
+<p>
+投擲硬幣20回，會出現10次正面及10次反面。<br><br>
+出現正面：獲得投注金額的「兩倍報酬」<br>
+出現反面：輸掉投注金額<br><br>
+看起來贏二輸一，是個必勝的賭局。<br><br>
+如果你有初始本錢10,000元，<br>
+投注金額隨意，20回後你的錢能翻三倍嗎？<br><br>
+<b>我想試試！</b>
+</p>
+
+<p>
+本次投注金額：<br>
+<input id="betAmount" placeholder="請輸入金額">
+</p>
+
+<button onclick="bet()">下注</button>
+<button onclick="resetGame()">重新開始</button>
+
+<div class="coin" id="coin"></div>
+<div id="capital"></div>
+<div id="final"></div>
+
+<script>
+let capital, round, results;
+
+// 初始化
+function init() {
+    capital = 10000;
+    round = 0;
+
+    results = [];
+    for (let i = 0; i < 10; i++) results.push("H");
+    for (let i = 0; i < 10; i++) results.push("T");
+
+    results.sort(() => Math.random() - 0.5);
+
+    document.getElementById("coin").innerHTML = "";
+    document.getElementById("capital").innerHTML = "目前資金：10000 元";
+    document.getElementById("final").innerHTML = "";
+    document.getElementById("betAmount").value = "";
+}
+
+// 下注
+function bet() {
+
+    if (round >= 20) return;
+
+    let bet = Number(document.getElementById("betAmount").value);
+
+    if (bet <= 0 || bet > capital) {
+        alert("投注金額需大於0且不可超過目前資金");
+        return;
+    }
+
+    let result = results[round];
+    round++;
+
+    if (result === "H") {
+        capital += bet * 2;
+        document.getElementById("coin").innerHTML = "🪙 正面";
+    } else {
+        capital -= bet;
+        document.getElementById("coin").innerHTML = "🪙 反面";
+    }
+
+    document.getElementById("capital").innerHTML =
+        "第 " + round + " 回｜目前資金：" + capital.toFixed(2) + " 元";
+
+    if (round === 20) finish();
+}
+
+// 結束評等
+function finish() {
+    let rating = "";
+
+    if (capital > 28000) {
+        rating = "獲利佳 🚀";
+    } else if (capital >= 10000) {
+        rating = "獲利少 🙂";
+    } else {
+        rating = "虧損 ⚠️";
+    }
+
+    document.getElementById("final").innerHTML =
+        "<br><b>最終本利和：" + capital.toFixed(2) + " 元</b><br>" +
+        "<b>評等：" + rating + "</b>";
+}
+
+// 重新開始
+function resetGame() {
+    init();
+}
+
+// 頁面載入初始化
+init();
+</script>
+
+</body>
+</html>
