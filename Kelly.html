@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!--!
+	© 2021 - 2026, Fical.net.
+	The license information of the external libraries used by this site can be found in '/libraries.txt'
+-->
+<html lang="zh-hant">
+	<head>
+        <meta charset="utf-8">
+        <meta name="description" content="凱利公式計算機是一種計算股票或加密貨幣最佳投資規模的工具。">
+        <meta name="color-scheme" content="light dark">
+        <meta name="robots" content="index, follow">
+        <meta name="keywords" content="凱利公式計算機">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta property="og:title" content="凱利公式計算機 - Fical.net">
+        <meta property="og:description" content="凱利公式計算機是一種計算股票或加密貨幣最佳投資規模的工具。">
+        <meta property="og:image" content="https://fical.net/img/zh-hant/thumbnail-kelly.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="https://fical.net/faviconv2.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="https://fical.net/favicon192.png">
+        <link rel="apple-touch-icon" href="https://fical.net/apple-touch-icon.png">
+        <link rel="canonical" href="https://fical.net/zh-hant/%E5%87%B1%E5%88%A9%E5%85%AC%E5%BC%8F%E8%A8%88%E7%AE%97%E6%A9%9F">
+            <link rel="alternate" hreflang="en" href="https://fical.net/en/kelly-criterion-calculator">
+            <link rel="alternate" hreflang="de" href="https://fical.net/de/kelly-formel-rechner">
+            <link rel="alternate" hreflang="es" href="https://fical.net/es/calculadora-de-criterio-de-kelly">
+            <link rel="alternate" hreflang="fr" href="https://fical.net/fr/calculatrice-de-crit%C3%A8re-de-kelly">
+            <link rel="alternate" hreflang="hi" href="https://fical.net/hi/%E0%A4%95%E0%A5%87%E0%A4%B2%E0%A5%80-%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0-%E0%A4%95%E0%A5%88%E0%A4%B2%E0%A4%95%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%B0">
+            <link rel="alternate" hreflang="it" href="https://fical.net/it/calcolatore-criterio-kelly">
+            <link rel="alternate" hreflang="ja" href="https://fical.net/ja/%E3%82%B1%E3%83%AA%E3%83%BC%E5%9F%BA%E6%BA%96%E3%82%B7%E3%83%A5%E3%83%9F%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">
+            <link rel="alternate" hreflang="ko" href="https://fical.net/ko/%EC%BC%88%EB%A6%AC-%EA%B3%B5%EC%8B%9D-%EA%B3%84%EC%82%B0%EA%B8%B0">
+            <link rel="alternate" hreflang="nl" href="https://fical.net/nl/kelly-criterium-berekenen">
+            <link rel="alternate" hreflang="pt" href="https://fical.net/pt/calculadora-de-crit%C3%A9rio-kelly">
+            <link rel="alternate" hreflang="ru" href="https://fical.net/ru/%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80-%D0%BA%D1%80%D0%B8%D1%82%D0%B5%D1%80%D0%B8%D1%8F-%D0%9A%D0%B5%D0%BB%D0%BB%D0%B8">
+            <link rel="alternate" hreflang="th" href="https://fical.net/th/%E0%B8%84%E0%B8%B3%E0%B8%99%E0%B8%A7%E0%B8%93%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%84%E0%B8%A5%E0%B8%A5%E0%B8%B5%E0%B9%88">
+            <link rel="alternate" hreflang="tr" href="https://fical.net/tr/kelly-kriteri-hesaplama">
+            <link rel="alternate" hreflang="vi" href="https://fical.net/vi/m%C3%A1y-t%C3%ADnh-c%C3%B4ng-th%E1%BB%A9c-Kelly">
+            <link rel="alternate" hreflang="zh-hans" href="https://fical.net/zh-hans/%E5%87%AF%E5%88%A9%E5%85%AC%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%99%A8">
+            <link rel="alternate" hreflang="zh-hant" href="https://fical.net/zh-hant/%E5%87%B1%E5%88%A9%E5%85%AC%E5%BC%8F%E8%A8%88%E7%AE%97%E6%A9%9F">
+        <link rel="alternate" hreflang="x-default" href="https://fical.net/en/kelly-criterion-calculator">
+        <title>凱利公式計算機 - Fical.net</title>
+		<script type="application/ld+json">
+		[{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "中文(繁體)",
+				"item": "https://fical.net/zh-hant/"
+			}
+            ,{
+				"@type": "ListItem",
+				"position": 2,
+				"name": "凱利公式計算機",
+				"item": "https://fical.net/zh-hant/%E5%87%B1%E5%88%A9%E5%85%AC%E5%BC%8F%E8%A8%88%E7%AE%97%E6%A9%9F"
+			}]
+		}
+		]
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/@ua-parser-js/pro-business@2.0.3/dist/ua-parser.pack.min.js" defer="defer" onload="deviceCheck()"></script>
+		<script>
+			function deviceCheck()
+			{
+
+				const uap = new UAParser();
+				uap.getDevice().withClientHints().then(function (device) {
+					if (device.vendor == 'Samsung')
+					{
+						let inputs = document.querySelectorAll("input[inputmode='decimal']");
+						for(let i = 0; i < inputs.length; i++)
+						{
+							inputs[i].setAttribute('inputmode', 'numeric');
+						}
+					}
+					window.device = device.vendor;
+					window.model = device.model;
+				});
+				
+			}
+		</script>
+		<script>
+				function readCookie(name) {
+					var nameEQ = name + "=";
+					var ca = document.cookie.split(';');
+					for(var i=0;i < ca.length;i++) {
+						var c = ca[i];
+						while (c.charAt(0)==' ') c = c.substring(1,c.length);
+						if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+					}
+					return null;
+				}
+
+				function saveCookie(name, value, days) {
+					var expires = "";
+					if (days) {
+						var date = new Date();
+						date.setTime(date.getTime() + (days*24*60*60*1000));
+						expires = "; expires=" + date.toUTCString();
+					}
+					document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+					
+				}
+				
+				const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+				function setFirstTheme()
+				{
+					let theme = localStorage.getItem('theme');
+					let theme2 = readCookie('theme');
+					if (!theme) theme = theme2;
+
+					if (theme == "dark")
+					{
+						document.documentElement.setAttribute('data-bs-theme', 'dark');
+					}
+					else if (theme == "light")
+					{
+						document.documentElement.setAttribute('data-bs-theme', 'light');
+					}
+					else
+					{
+						if (darkModeMediaQuery.matches == true)
+						{
+							document.documentElement.setAttribute('data-bs-theme', 'dark');
+						}
+						else
+						{
+							document.documentElement.setAttribute('data-bs-theme', 'light');
+						}
+					}
+				}
+
+				setFirstTheme();
+
+				darkModeMediaQuery.addEventListener('change', setFirstTheme);
+			
+		</script>
+		
+		<style>:root,[data-bs-theme=light]{--bs-font-sans-serif:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-body-font-family:var(--bs-font-sans-serif);--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-bg:#fff;--bs-emphasis-color-rgb:0,0,0;--bs-secondary-color:rgba(33, 37, 41, 0.75);--bs-secondary-bg:#e9ecef;--bs-tertiary-color:rgba(33, 37, 41, 0.5);--bs-tertiary-bg:#f8f9fa;--bs-heading-color:inherit;--bs-link-color:#0d6efd;--bs-link-color-rgb:13,110,253;--bs-link-hover-color:#0a58ca;--bs-link-hover-color-rgb:10,88,202;--bs-border-width:1px;--bs-border-style:solid;--bs-border-color:#dee2e6;--bs-border-color-translucent:rgba(0, 0, 0, 0.175);--bs-border-radius:0.375rem}[data-bs-theme=dark]{color-scheme:dark;--bs-body-color:#dee2e6;--bs-body-bg:#212529;--bs-emphasis-color-rgb:255,255,255;--bs-secondary-color:rgba(222, 226, 230, 0.75);--bs-secondary-bg:#343a40;--bs-tertiary-color:rgba(222, 226, 230, 0.5);--bs-tertiary-bg:#2b3035;--bs-heading-color:inherit;--bs-link-color:#6ea8fe;--bs-link-hover-color:#8bb9fe;--bs-link-color-rgb:110,168,254;--bs-link-hover-color-rgb:139,185,254;--bs-border-color:#495057;--bs-border-color-translucent:rgba(255, 255, 255, 0.15)}*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);font-weight:var(--bs-body-font-weight);line-height:var(--bs-body-line-height);color:var(--bs-body-color);text-align:var(--bs-body-text-align);background-color:var(--bs-body-bg);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;border:0;border-top:var(--bs-border-width) solid;opacity:.25}.h1,.h2,.h4,.h5,h1,h2,h4,h5{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2;color:var(--bs-heading-color)}.h1,h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){.h1,h1{font-size:2.5rem}}.h2,h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){.h2,h2{font-size:2rem}}.h4,h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){.h4,h4{font-size:1.5rem}}.h5,h5{font-size:1.25rem}p{margin-top:0;margin-bottom:1rem}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}b,strong{font-weight:bolder}.small,small{font-size:.875em}a{color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));text-decoration:underline}a:hover{--bs-link-color-rgb:var(--bs-link-hover-color-rgb)}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}img,svg{vertical-align:middle}th{text-align:inherit;text-align:-webkit-match-parent}th,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[type=button],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}::file-selector-button{font:inherit;-webkit-appearance:button}[hidden]{display:none!important}.container-fluid{--bs-gutter-x:1.5rem;width:100%;padding-right:calc(var(--bs-gutter-x) * .5);padding-left:calc(var(--bs-gutter-x) * .5);margin-right:auto;margin-left:auto}.form-label{margin-bottom:.5rem}.form-control{display:block;width:100%;padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:var(--bs-body-color);-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:var(--bs-body-bg);background-clip:padding-box;border:var(--bs-border-width) solid var(--bs-border-color);border-radius:var(--bs-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.form-control{transition:none}}.form-control[type=file]{overflow:hidden}.form-control[type=file]:not(:disabled):not([readonly]){cursor:pointer}.form-control:focus{color:var(--bs-body-color);background-color:var(--bs-body-bg);border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.form-control::-webkit-date-and-time-value{min-width:85px;height:1.5em;margin:0}.form-control::-webkit-datetime-edit{display:block;padding:0}.form-control::-moz-placeholder{color:var(--bs-secondary-color);opacity:1}.form-control::placeholder{color:var(--bs-secondary-color);opacity:1}.form-control:disabled{background-color:var(--bs-secondary-bg);opacity:1}.form-control::-webkit-file-upload-button{padding:.375rem .75rem;margin:-.375rem -.75rem;-webkit-margin-end:.75rem;margin-inline-end:.75rem;color:var(--bs-body-color);background-color:var(--bs-tertiary-bg);pointer-events:none;border-color:inherit;border-style:solid;border-width:0;border-inline-end-width:var(--bs-border-width);border-radius:0;-webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}.form-control::file-selector-button{padding:.375rem .75rem;margin:-.375rem -.75rem;-webkit-margin-end:.75rem;margin-inline-end:.75rem;color:var(--bs-body-color);background-color:var(--bs-tertiary-bg);pointer-events:none;border-color:inherit;border-style:solid;border-width:0;border-inline-end-width:var(--bs-border-width);border-radius:0;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.form-control::-webkit-file-upload-button{-webkit-transition:none;transition:none}.form-control::file-selector-button{transition:none}}.form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button{background-color:var(--bs-secondary-bg)}.form-control:hover:not(:disabled):not([readonly])::file-selector-button{background-color:var(--bs-secondary-bg)}textarea.form-control{min-height:calc(1.5em + .75rem + calc(var(--bs-border-width) * 2))}.form-select{--bs-form-select-bg-img:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");display:block;width:100%;padding:.375rem 2.25rem .375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:var(--bs-body-color);-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:var(--bs-body-bg);background-image:var(--bs-form-select-bg-img),var(--bs-form-select-bg-icon,none);background-repeat:no-repeat;background-position:right .75rem center;background-size:16px 12px;border:var(--bs-border-width) solid var(--bs-border-color);border-radius:var(--bs-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.form-select{transition:none}}.form-select:focus{border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.form-select[size]:not([size="1"]){padding-right:.75rem;background-image:none}.form-select:disabled{background-color:var(--bs-secondary-bg)}.form-select:-moz-focusring{color:transparent;text-shadow:0 0 0 var(--bs-body-color)}[data-bs-theme=dark] .form-select{--bs-form-select-bg-img:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dee2e6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")}.form-check{display:block;min-height:1.5rem;padding-left:1.5em;margin-bottom:.125rem}.form-check .form-check-input{float:left;margin-left:-1.5em}.form-check-input{--bs-form-check-bg:var(--bs-body-bg);flex-shrink:0;width:1em;height:1em;margin-top:.25em;vertical-align:top;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:var(--bs-form-check-bg);background-image:var(--bs-form-check-bg-image);background-repeat:no-repeat;background-position:center;background-size:contain;border:var(--bs-border-width) solid var(--bs-border-color);-webkit-print-color-adjust:exact;color-adjust:exact;print-color-adjust:exact}.form-check-input[type=checkbox]{border-radius:.25em}.form-check-input[type=radio]{border-radius:50%}.form-check-input:active{filter:brightness(90%)}.form-check-input:focus{border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.form-check-input:checked{background-color:#0d6efd;border-color:#0d6efd}.form-check-input:checked[type=checkbox]{--bs-form-check-bg-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")}.form-check-input:checked[type=radio]{--bs-form-check-bg-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")}.form-check-input[type=checkbox]:indeterminate{background-color:#0d6efd;border-color:#0d6efd;--bs-form-check-bg-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")}.form-check-input:disabled{pointer-events:none;filter:none;opacity:.5}.btn-check{position:absolute;clip:rect(0,0,0,0);pointer-events:none}.btn-check:disabled+.btn,.btn-check[disabled]+.btn{pointer-events:none;filter:none;opacity:.65}.btn{--bs-btn-padding-x:0.75rem;--bs-btn-padding-y:0.375rem;--bs-btn-font-family: ;--bs-btn-font-size:1rem;--bs-btn-font-weight:400;--bs-btn-line-height:1.5;--bs-btn-color:var(--bs-body-color);--bs-btn-bg:transparent;--bs-btn-border-width:var(--bs-border-width);--bs-btn-border-color:transparent;--bs-btn-border-radius:var(--bs-border-radius);--bs-btn-hover-border-color:transparent;--bs-btn-disabled-opacity:0.65;--bs-btn-focus-box-shadow:0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);display:inline-block;padding:var(--bs-btn-padding-y) var(--bs-btn-padding-x);font-family:var(--bs-btn-font-family);font-size:var(--bs-btn-font-size);font-weight:var(--bs-btn-font-weight);line-height:var(--bs-btn-line-height);color:var(--bs-btn-color);text-align:center;text-decoration:none;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;border:var(--bs-btn-border-width) solid var(--bs-btn-border-color);border-radius:var(--bs-btn-border-radius);background-color:var(--bs-btn-bg);transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.btn{transition:none}}.btn:hover{color:var(--bs-btn-hover-color);background-color:var(--bs-btn-hover-bg);border-color:var(--bs-btn-hover-border-color)}.btn-check+.btn:hover{color:var(--bs-btn-color);background-color:var(--bs-btn-bg);border-color:var(--bs-btn-border-color)}.btn:focus-visible{color:var(--bs-btn-hover-color);background-color:var(--bs-btn-hover-bg);border-color:var(--bs-btn-hover-border-color);outline:0;box-shadow:var(--bs-btn-focus-box-shadow)}.btn-check:focus-visible+.btn{border-color:var(--bs-btn-hover-border-color);outline:0;box-shadow:var(--bs-btn-focus-box-shadow)}.btn-check:checked+.btn,.btn:first-child:active,:not(.btn-check)+.btn:active{color:var(--bs-btn-active-color);background-color:var(--bs-btn-active-bg);border-color:var(--bs-btn-active-border-color)}.btn-check:checked+.btn:focus-visible,.btn:first-child:active:focus-visible,:not(.btn-check)+.btn:active:focus-visible{box-shadow:var(--bs-btn-focus-box-shadow)}.btn-check:checked:focus-visible+.btn{box-shadow:var(--bs-btn-focus-box-shadow)}.btn.disabled,.btn:disabled{color:var(--bs-btn-disabled-color);pointer-events:none;background-color:var(--bs-btn-disabled-bg);border-color:var(--bs-btn-disabled-border-color);opacity:var(--bs-btn-disabled-opacity)}.btn-secondary{--bs-btn-color:#fff;--bs-btn-bg:#6c757d;--bs-btn-border-color:#6c757d;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#5c636a;--bs-btn-hover-border-color:#565e64;--bs-btn-focus-shadow-rgb:130,138,145;--bs-btn-active-color:#fff;--bs-btn-active-bg:#565e64;--bs-btn-active-border-color:#51585e;--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#6c757d;--bs-btn-disabled-border-color:#6c757d}.btn-success{--bs-btn-color:#fff;--bs-btn-bg:#198754;--bs-btn-border-color:#198754;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#157347;--bs-btn-hover-border-color:#146c43;--bs-btn-focus-shadow-rgb:60,153,110;--bs-btn-active-color:#fff;--bs-btn-active-bg:#146c43;--bs-btn-active-border-color:#13653f;--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#198754;--bs-btn-disabled-border-color:#198754}.btn-danger{--bs-btn-color:#fff;--bs-btn-bg:#dc3545;--bs-btn-border-color:#dc3545;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#bb2d3b;--bs-btn-hover-border-color:#b02a37;--bs-btn-focus-shadow-rgb:225,83,97;--bs-btn-active-color:#fff;--bs-btn-active-bg:#b02a37;--bs-btn-active-border-color:#a52834;--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#dc3545;--bs-btn-disabled-border-color:#dc3545}.btn-outline-secondary{--bs-btn-color:#6c757d;--bs-btn-border-color:#6c757d;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#6c757d;--bs-btn-hover-border-color:#6c757d;--bs-btn-focus-shadow-rgb:108,117,125;--bs-btn-active-color:#fff;--bs-btn-active-bg:#6c757d;--bs-btn-active-border-color:#6c757d;--bs-btn-disabled-color:#6c757d;--bs-btn-disabled-bg:transparent;--bs-btn-disabled-border-color:#6c757d}.dropdown{position:relative}.dropdown-toggle{white-space:nowrap}.dropdown-toggle::after{display:inline-block;margin-left:.255em;vertical-align:.255em;content:"";border-top:.3em solid;border-right:.3em solid transparent;border-bottom:0;border-left:.3em solid transparent}.dropdown-toggle:empty::after{margin-left:0}.dropdown-menu{--bs-dropdown-zindex:1000;--bs-dropdown-min-width:10rem;--bs-dropdown-padding-x:0;--bs-dropdown-padding-y:0.5rem;--bs-dropdown-font-size:1rem;--bs-dropdown-color:var(--bs-body-color);--bs-dropdown-bg:var(--bs-body-bg);--bs-dropdown-border-color:var(--bs-border-color-translucent);--bs-dropdown-border-radius:var(--bs-border-radius);--bs-dropdown-border-width:var(--bs-border-width);--bs-dropdown-divider-bg:var(--bs-border-color-translucent);--bs-dropdown-divider-margin-y:0.5rem;--bs-dropdown-link-color:var(--bs-body-color);--bs-dropdown-link-hover-color:var(--bs-body-color);--bs-dropdown-link-hover-bg:var(--bs-tertiary-bg);--bs-dropdown-link-active-color:#fff;--bs-dropdown-link-active-bg:#0d6efd;--bs-dropdown-link-disabled-color:var(--bs-tertiary-color);--bs-dropdown-item-padding-x:1rem;--bs-dropdown-item-padding-y:0.25rem;position:absolute;z-index:var(--bs-dropdown-zindex);display:none;min-width:var(--bs-dropdown-min-width);padding:var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);margin:0;font-size:var(--bs-dropdown-font-size);color:var(--bs-dropdown-color);text-align:left;list-style:none;background-color:var(--bs-dropdown-bg);background-clip:padding-box;border:var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);border-radius:var(--bs-dropdown-border-radius)}.dropdown-divider{height:0;margin:var(--bs-dropdown-divider-margin-y) 0;overflow:hidden;border-top:1px solid var(--bs-dropdown-divider-bg);opacity:1}.dropdown-item{display:block;width:100%;padding:var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);clear:both;font-weight:400;color:var(--bs-dropdown-link-color);text-align:inherit;text-decoration:none;white-space:nowrap;background-color:transparent;border:0;border-radius:var(--bs-dropdown-item-border-radius,0)}.dropdown-item:focus,.dropdown-item:hover{color:var(--bs-dropdown-link-hover-color);background-color:var(--bs-dropdown-link-hover-bg)}.dropdown-item:active{color:var(--bs-dropdown-link-active-color);text-decoration:none;background-color:var(--bs-dropdown-link-active-bg)}.dropdown-item.disabled,.dropdown-item:disabled{color:var(--bs-dropdown-link-disabled-color);pointer-events:none;background-color:transparent}.btn-group{position:relative;display:inline-flex;vertical-align:middle}.btn-group>.btn{position:relative;flex:1 1 auto}.btn-group>.btn-check:checked+.btn,.btn-group>.btn-check:focus+.btn,.btn-group>.btn:active,.btn-group>.btn:focus,.btn-group>.btn:hover{z-index:1}.btn-group{border-radius:var(--bs-border-radius)}.btn-group>.btn-group:not(:first-child),.btn-group>:not(.btn-check:first-child)+.btn{margin-left:calc(var(--bs-border-width) * -1)}.btn-group>.btn-group:not(:last-child)>.btn,.btn-group>.btn:not(:last-child):not(.dropdown-toggle){border-top-right-radius:0;border-bottom-right-radius:0}.btn-group>.btn-group:not(:first-child)>.btn,.btn-group>.btn:nth-child(n+3),.btn-group>:not(.btn-check)+.btn{border-top-left-radius:0;border-bottom-left-radius:0}.nav{--bs-nav-link-padding-x:1rem;--bs-nav-link-padding-y:0.5rem;--bs-nav-link-font-weight: ;--bs-nav-link-color:var(--bs-link-color);--bs-nav-link-hover-color:var(--bs-link-hover-color);--bs-nav-link-disabled-color:var(--bs-secondary-color);display:flex;flex-wrap:wrap;padding-left:0;margin-bottom:0;list-style:none}.nav-link{display:block;padding:var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);font-size:var(--bs-nav-link-font-size);font-weight:var(--bs-nav-link-font-weight);color:var(--bs-nav-link-color);text-decoration:none;background:0 0;border:0;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out}@media (prefers-reduced-motion:reduce){.nav-link{transition:none}}.nav-link:focus,.nav-link:hover{color:var(--bs-nav-link-hover-color)}.nav-link:focus-visible{outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.nav-link.disabled,.nav-link:disabled{color:var(--bs-nav-link-disabled-color);pointer-events:none;cursor:default}.navbar{--bs-navbar-padding-x:0;--bs-navbar-padding-y:0.5rem;--bs-navbar-color:rgba(var(--bs-emphasis-color-rgb), 0.65);--bs-navbar-hover-color:rgba(var(--bs-emphasis-color-rgb), 0.8);--bs-navbar-disabled-color:rgba(var(--bs-emphasis-color-rgb), 0.3);--bs-navbar-brand-padding-y:0.3125rem;--bs-navbar-brand-margin-end:1rem;--bs-navbar-brand-font-size:1.25rem;--bs-navbar-brand-color:rgba(var(--bs-emphasis-color-rgb), 1);--bs-navbar-brand-hover-color:rgba(var(--bs-emphasis-color-rgb), 1);--bs-navbar-nav-link-padding-x:0.5rem;position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:var(--bs-navbar-padding-y) var(--bs-navbar-padding-x)}.navbar>.container-fluid{display:flex;flex-wrap:inherit;align-items:center;justify-content:space-between}.navbar-brand{padding-top:var(--bs-navbar-brand-padding-y);padding-bottom:var(--bs-navbar-brand-padding-y);margin-right:var(--bs-navbar-brand-margin-end);font-size:var(--bs-navbar-brand-font-size);color:var(--bs-navbar-brand-color);text-decoration:none;white-space:nowrap}.navbar-brand:focus,.navbar-brand:hover{color:var(--bs-navbar-brand-hover-color)}.navbar-nav{--bs-nav-link-padding-x:0;--bs-nav-link-padding-y:0.5rem;--bs-nav-link-font-weight: ;--bs-nav-link-color:var(--bs-navbar-color);--bs-nav-link-hover-color:var(--bs-navbar-hover-color);--bs-nav-link-disabled-color:var(--bs-navbar-disabled-color);display:flex;flex-direction:column;padding-left:0;margin-bottom:0;list-style:none}.navbar-nav .dropdown-menu{position:static}@media (min-width:992px){.navbar-expand-lg{flex-wrap:nowrap;justify-content:flex-start}.navbar-expand-lg .navbar-nav{flex-direction:row}.navbar-expand-lg .navbar-nav .dropdown-menu{position:absolute}.navbar-expand-lg .navbar-nav .nav-link{padding-right:var(--bs-navbar-nav-link-padding-x);padding-left:var(--bs-navbar-nav-link-padding-x)}}.navbar-expand{flex-wrap:nowrap;justify-content:flex-start}.navbar-expand .navbar-nav{flex-direction:row}.navbar-expand .navbar-nav .dropdown-menu{position:absolute}.navbar-expand .navbar-nav .nav-link{padding-right:var(--bs-navbar-nav-link-padding-x);padding-left:var(--bs-navbar-nav-link-padding-x)}.navbar[data-bs-theme=dark]{--bs-navbar-color:rgba(255, 255, 255, 0.55);--bs-navbar-hover-color:rgba(255, 255, 255, 0.75);--bs-navbar-disabled-color:rgba(255, 255, 255, 0.25);--bs-navbar-brand-color:#fff;--bs-navbar-brand-hover-color:#fff}.tooltip{--bs-tooltip-zindex:1080;--bs-tooltip-margin: ;--bs-tooltip-font-size:0.875rem;z-index:var(--bs-tooltip-zindex);display:block;margin:var(--bs-tooltip-margin);font-family:var(--bs-font-sans-serif);font-style:normal;font-weight:400;line-height:1.5;text-align:left;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;letter-spacing:normal;word-break:normal;white-space:normal;word-spacing:normal;line-break:auto;font-size:var(--bs-tooltip-font-size);word-wrap:break-word;opacity:0}.placeholder{display:inline-block;min-height:1em;vertical-align:middle;cursor:wait;background-color:currentcolor;opacity:.5}.placeholder.btn::before{display:inline-block;content:""}.ratio{position:relative;width:100%}.ratio::before{display:block;padding-top:var(--bs-aspect-ratio);content:""}.ratio>*{position:absolute;top:0;left:0;width:100%;height:100%}.d-flex{display:flex!important}.border{border:var(--bs-border-width) var(--bs-border-style) var(--bs-border-color)!important}.justify-content-start{justify-content:flex-start!important}.justify-content-center{justify-content:center!important}.m-3{margin:1rem!important}.mt-2{margin-top:.5rem!important}.mt-3{margin-top:1rem!important}.me-1{margin-right:.25rem!important}.me-2{margin-right:.5rem!important}.me-3{margin-right:1rem!important}.mb-0{margin-bottom:0!important}.mb-1{margin-bottom:.25rem!important}.mb-2{margin-bottom:.5rem!important}.mb-3{margin-bottom:1rem!important}.mb-5{margin-bottom:3rem!important}.ms-2{margin-left:.5rem!important}.ms-auto{margin-left:auto!important}.p-0{padding:0!important}.p-2{padding:.5rem!important}.py-3{padding-top:1rem!important;padding-bottom:1rem!important}.pt-2{padding-top:.5rem!important}.pt-3{padding-top:1rem!important}.pe-0{padding-right:0!important}.pb-2{padding-bottom:.5rem!important}.pb-3{padding-bottom:1rem!important}.ps-0{padding-left:0!important}.ps-1{padding-left:.25rem!important}.fs-2{font-size:calc(1.325rem + .9vw)!important}.fs-4{font-size:calc(1.275rem + .3vw)!important}.fs-5{font-size:1.25rem!important}.text-center{text-align:center!important}.visible{visibility:visible!important}@media (min-width:768px){.mb-md-3{margin-bottom:1rem!important}.pt-md-3{padding-top:1rem!important}}@media (min-width:1200px){.fs-2{font-size:2rem!important}.fs-4{font-size:1.5rem!important}}
+h1{font-family:sans-serif;font-size:40px;font-weight:500;margin-top:20px;margin-bottom:20px}h2{font-size:28px;font-weight:400}h4{font-size:20px;font-weight:700}h5{font-size:1.125rem}.row2{display:flex;flex-wrap:wrap}.row2>*{flex-shrink:0;width:100%;max-width:100%}body{background-color:var(--outter-background-color)}nav{background-color:var(--inner-background-color)}#body-container{max-width:1000px;padding-bottom:3rem;padding-top:3rem;margin:0 auto}.menu-container{max-width:1000px}.main-container{width:100%;max-width:680px;margin-right:20px}.aside-container{max-width:300px}aside{height:100%;width:100%}.inner-container{border:1px solid var(--container-border-color);border-radius:2px;background-color:var(--inner-background-color);padding-left:10px;padding-right:10px}aside .inner-container{padding:0}.p-main{padding-left:25px;padding-right:25px;padding-bottom:2em;background-color:var(--inner-background-color)}.p-main:not(:last-child){border-bottom:1px solid var(--container-border-color)}article section{margin-bottom:40px}article section:last-child{margin-bottom:20px}article.p-main{overflow:auto}.img-center{display:flex;align-items:center;justify-content:center}.table-active{background-color:#ccc;font-weight:700}.fadeInAnim{animation:fadeIn 2s ease-out}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}.small-currency{font-size:20px}svg{fill:var(--svg-color)}.btn{border-radius:.25rem}.btn-blue{font-weight:700;background-color:var(--button-background-color);border:1px solid var(--button-border-color);color:var(--blue-button-basic-color);fill:var(--blue-button-basic-color)}.btn-blue:hover{border-color:var(--blue-button-hover-border-color);background-color:var(--blue-button-hover-background-color);color:var(--blue-button-hover-color)}main .query>button{font-size:14px}.menu-container .query>button{border-color:#000;white-space:nowrap}.btn-calculate{border-color:var(--button-border-color)!important;background-color:var(--button-background-color)}.btn-calculate:hover{background-color:var(--button-hover-color)}.toggle-theme-button{width:38px;height:38px;display:flex!important;justify-content:center;align-items:center;padding:0;border:1px solid var(--button-border-color);border-radius:40px!important}.toggle-theme-button:hover{border-color:var(--blue-button-hover-border-color)}[data-bs-theme=dark] .light-svg{display:none}[data-bs-theme=dark] .dark-svg{display:block}.light-svg{display:block}.dark-svg{display:none}:root{--mdc-theme-primary:#009c86;--bs-body-font-size:17px;--mdc-typography-button-font-size:17px;--bs-border-color:#ced4da;--bs-border-radius:0.25rem;--outter-background-color:#eee;--inner-background-color:#fff;--container-border-color:#ccc;--nav-link-color:#333;--readonly-background-color:#e9ecef;--button-border-color:#8d8f91;--button-hover-color:#e7e7e7;--button-background-color:#fff;--blue-button-basic-color:#555;--blue-button-hover-background-color:#dde7ff;--blue-button-hover-border-color:#739dd9;--blue-button-hover-color:#1570e7;--form-check-border-color:rgba(0,0,0,.25);--footer-background-color:rgba(248,249,250,1);--anchor-color:#1602b9;--anchor-hover-color:#0a58ca;--ad-background-color:#eee;--dropdown-color:#1e2125;--dropdown-hover-background-color:#e9ecef;--highlight-table-background-color:#e2e3e5;--table-dobled-border-color:#dee2e6;--mdc-theme-on-surface:#212529;--mdc-theme-surface:#fff;--average-select-background:rgb(240, 240, 240);--svg-color:#222;--svg-color2:#666;--average-item-background:#fafafa;--average-item-border:#cecece;--average-item-header-border:#c0c0c0;--average-item-bottom-border:#999;--table-header-border-color:#c0c0c0;--mdc-text-background-color:#f5f5f5;--average-select-border:#ddd;--green-color:#138013;--silver-color:#777;--average-swap-activated:#ececec;--average-swap-hover:#ececec80;--download-button-background-color:#3ab582}:root[data-bs-theme=dark]{--bs-border-color:#495057;--outter-background-color:#151515;--inner-background-color:#151515;--container-border-color:#444;--nav-link-color:#ccc;--readonly-background-color:#222;--button-border-color:#495057;--button-hover-color:#333;--button-background-color:#222;--blue-button-basic-color:#ddd;--blue-button-hover-background-color:#474950;--blue-button-hover-border-color:#465f83;--blue-button-hover-color:#227df2;--form-check-border-color:#555;--footer-background-color:#222;--anchor-color:#6451ff;--anchor-hover-color:#0a58ca;--ad-background-color:#333;--dropdown-color:#dee2e6;--dropdown-hover-background-color:#2b3035;--highlight-table-background-color:#151515;--table-dobled-border-color:#495057;--mdc-theme-on-surface:#eee;--mdc-theme-surface:#222;--average-select-background:#222;--svg-color:#ddd;--svg-color2:#aaa;--average-item-background:#222;--average-item-border:#828282;--average-item-header-border:#828282;--average-item-bottom-border:#aaa;--table-header-border-color:#7a7a7a;--mdc-text-background-color:#4c4c4c;--average-select-border:#424242;--green-color:#18c118;--silver-color:#a3a3a3;--average-swap-activated:#323539;--average-swap-hover:#32353980;--download-button-background-color:#30956b}html{scroll-behavior:smooth}[data-bs-theme=dark] .logo{filter:brightness(1.9) opacity(.7)}[data-bs-theme=dark] .formula{filter:invert(.96) brightness(2)}[data-bs-theme=dark] .formula::selection{background-color:#fff}.dropdown-item:active,.dropdown-item:focus,.dropdown-item:hover{color:var(--dropdown-color);background-color:var(--dropdown-hover-background-color)}#language-button{border-color:var(--button-border-color);background-color:var(--button-background-color);width:70px}.form-select{width:auto}.dropdown-menu-right{right:0}tr{white-space:nowrap}.nobold{font-weight:400}.hr{border-color:#999;border-style:solid none;border-width:1px 0 0;margin-top:1rem;padding-top:1rem}ul.circle{counter-reset:section;list-style:none}ul.circle li{margin:0 0 5px 0;line-height:20px}ul.circle li:before{content:counter(section);counter-increment:section;display:inline-block;width:20px;height:20px;margin:0 8px 0 0;border:1px solid #ccc;border-radius:100%;text-align:center;background-color:#ff0;font-size:14px;line-height:16px;color:#000}a{text-decoration:none;color:var(--anchor-color)}a:hover{color:var(--anchor-hover-color)}.noDot{list-style-type:none}.svg{padding:0;background-color:rgba(0,0,0,0);border-width:0}.svg>svg{pointer-events:none}.dark-green{color:#138013!important}.dark-red{color:#c40b0b!important}.bold{font-weight:700}.nav-desktop{display:block}.nav-mobile{display:none}.navbar{border-bottom:1px solid var(--container-border-color)}.nav-link{padding:.5rem 1rem}footer{background-color:var(--footer-background-color)}.ad-ddesktop{margin:0 auto;text-align:center}.ad-mobile{display:none!important;margin:0 auto;text-align:center}.ad-mobile>ins{display:none!important}.ad-large-mobile{margin:0 auto;text-align:center}.ad-default{display:block!important;margin:0 auto;text-align:center}.ad-default>ins{display:block!important}.sticky-ad{display:none;position:fixed;bottom:0;width:100%;z-index:9999;background-color:#959595}#sticky-message{height:50px;line-height:initial;font-size:20px;text-align:center}#sticky-content,#sticky-content .yandexAd>div,#sticky-content ins{width:100%;max-width:320px;margin:0 auto;height:50px;max-height:50px}#mobile-logo{margin:0;padding:0;width:100%;text-align:center}.aaside-ad{position:sticky;top:2rem;margin-top:20px}#dropdown-language{max-height:350px;overflow:scroll}.dropdown-menu{z-index:10001!important}.query{text-align:right}#inquery,.dialog{border:1px solid var(--container-border-color);border-radius:8px;background-color:var(--inner-background-color);position:fixed;width:100%;max-width:450px;padding:16px;top:50%;left:50%;transform:translate(-50%,-50%);animation:show .4s;z-index:10001}#inquery{z-index:9999}.dialog{font-size:16px;animation:show .2s}.dialog button{font-size:16px;padding:5px 10px 5px 10px}@keyframes show{from{opacity:0}to{opacity:1}}.wait-agreement{filter:blur(1px) grayscale(50%);pointer-events:none}#sticky-close{position:absolute;display:none;top:-25px;right:0;width:50px;height:25px;background:#bbb;color:#eee;border-radius:5px 5px 0 0;text-align:center}.nav-link{display:inline-block;font-weight:700;color:var(--nav-link-color)}#currency-preview{text-align:center;font-size:24px;border:var(--container-border-color) 1px solid;border-radius:4px;padding:8px}#notice>div{background-color:rgba(0,231,255,.1490196078);border-radius:16px;padding:10px}#notice .svg{background-color:rgba(0,0,0,0)}.hideAd{display:none!important}ins.adsbygoogle[data-ad-status=unfilled]{display:none!important}.ad-t-container{display:flex;flex-direction:column;align-items:center;min-width:100%;padding:8px 0 8px 0;text-align:center}.ad-top-container{height:100px;max-height:100px}.svg-button{width:20px;height:20px}#w2g-slot2,#w2g-slot6,#w2g-slot7{margin-top:0!important;margin-bottom:0!important}#outside-click-blocker{display:none;position:fixed;top:0;right:0;left:0;bottom:0;z-index:10000;background-color:#000;opacity:.3}.dropdown-item:active{background-color:inherit!important}.form-check-input{border-color:var(--form-check-border-color)}.form-check-input:checked{border-color:#5cbb1d;background-color:#5cbb1d}input[readonly]{color:gray!important}.form-control[readonly]{background-color:var(--readonly-background-color);opacity:1}.form-check-input,.form-control,.form-select{box-shadow:none!important}.menu-btn{display:flex;width:100%;height:100%;justify-content:space-around;align-items:center}#table-footer{visibility:hidden}#table-footer tr{border:0 solid transparent}#table-footer div{height:1px}@media (max-width:1000px){.main-container{margin:0 auto}.aside-container{display:none}footer{min-height:0}.ad-ddesktop{display:none!important}.ad-ddesktop>ins{display:none!important}.ad-large-mobile{display:block}.ad-large-mobile>ins{display:inline-block}.showOnSmallDesktop{display:block!important}}@media (max-width:599px){h1{margin-bottom:1rem;margin-top:.5rem;font-size:25px}h2{font-size:calc(1.325rem + .9vw);padding-left:4px}body{margin-bottom:50px}#body-container{padding-bottom:0;padding-top:0}.main-container{max-width:100%;margin-right:0}.aside-container{max-width:100%}.inner-container{padding-left:0;padding-right:0;border-width:0}.p-main{padding-left:11px;padding-right:11px;padding-bottom:1em}.small-currency{font-size:16px}:root{--mdc-typography-button-font-size:16px}#language-button{border-color:transparent;background-color:rgba(0,0,0,0);width:40px;padding:0}#language-button.dropdown-toggle::after{content:none}.nav-desktop{display:none}.nav-mobile{display:block}.ad-mobile{display:block}.ad-mobile>ins{display:inline-block}.ad-large-mobile{background-color:var(--ad-background-color)}.sticky-ad{display:block}.adsenseAd2{background-color:var(--ad-background-color)}.ad-t-container{border-bottom:1px solid var(--container-border-color)}.svg-button{width:24px;height:24px}}@media (max-height:500px){.sticky-ad,.sticky-ad .sticky-unit{display:none}}@media (max-width:300px){#mobile-logo{margin-left:0}#currency-preview{font-size:20px;padding:0}}@media (min-width:599px)and (max-width:1000px){#body-container{padding-top:0;padding-bottom:1rem}}@media (min-width:600px)and (max-width:1000px){.no-ad-top{padding-top:62px}}@media (min-width:1000px){#body-container{padding-bottom:3rem;padding-top:3rem}.no-ad-top{padding-top:0}.main-container{margin:0 20px 0 0}.aside-container{display:initial}footer{min-height:200px}.ad-large-mobile{display:none!important}.ad-large-mobile>ins{display:none!important}.showOnSmallDesktop{display:none}}
+.table-highlight{background-color:var(--highlight-table-background-color)!important}
+</style>
+		<style>
+			body {
+				font-family: "Microsoft JhengHei", Arial, sans-serif;
+			}
+			.medium-title
+			{
+				font-size: 22px;
+			}
+			.small-title
+			{
+				font-size: 20px;
+			}
+		</style>
+		<link rel="preload" href="/api/geo" as="fetch" crossorigin="anonymous">
+			<link rel="preconnect" href="https://tpc.googlesyndication.com/">
+			<link rel="preconnect" href="https://www.google.com/">
+			<link rel="preconnect" href="https://pagead2.googlesyndication.com/" crossorigin="anonymous">
+			<link rel="preconnect" href="https://pagead2.googlesyndication.com/">
+			<link rel="preconnect" href="https://www.googletagservices.com/">
+			<link rel="preconnect" href="https://www.gstatic.com/">
+			<link rel="preconnect" href="https://cdn.ampproject.org/">
+			<link rel="preconnect" href="https://securepubads.g.doubleclick.net">
+			<link rel="preconnect" href="https://securepubads.g.doubleclick.net" crossorigin="anonymous">
+
+		
+		<script>
+				window['mode'] = 'web';
+			
+				window['testMode'] = false;
+		var information;(()=>{"use strict";var e={d:(t,n)=>{for(var o in n)e.o(n,o)&&!e.o(t,o)&&Object.defineProperty(t,o,{enumerable:!0,get:n[o]})},o:(e,t)=>Object.prototype.hasOwnProperty.call(e,t),r:e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})}},t={};e.r(t),e.d(t,{getCountry:()=>a,isGDPR:()=>i,loadAds:()=>f,preWaitInit:()=>s,waitInit:()=>p});let n=!1,o="en",r=!1;function a(){return o}function i(){return r}let l=[],c=[];function s(e){n?e():l.push(e)}function p(e){n?e():c.push(e)}function d(e){const t=new Date;t.setHours(0,0,0,0);const n=new Date(e);return n.setHours(0,0,0,0),Math.floor((t.getTime()-n.getTime())/864e5)}function g(e){localStorage.setItem("tInfo",JSON.stringify(e))}function f(){p((()=>{let e=0,t=function(){if(-1!=["us","kr","ru","in","cn","sg"].indexOf(window.country))return 0;if(-1==["zh-hant"].indexOf(window.lang))return 0;if(d(u.pv)<2)return 0;if(null!=u.plv&&d(parseInt(u.plv))<2)return 0;if(Math.random()>.5)return 0;if(u.psc>=2)return 0;u.psc+=1,u.plv=Date.now(),g(u),document.getElementById("aaside-ad").innerHTML="<div style='width:300px;height:250px;'><a href='https://www.vantagemarkets.com/hant/promotions/race-to-win-2025/?affid=MTY1MDI1ODc='rel='noreferrer nofollow'><img src='/img/prom/zhhant2.png' width='300px' height='250px'></a></div>";let e=document.getElementById("bbottom-ad");return window.innerWidth<600&&e?(e.innerHTML="<div style='width:300px;height:250px;'><a href='https://www.vantagemarkets.com/hant/promotions/race-to-win-2025/?affid=MTY1MDI1ODc='rel='noreferrer nofollow'><img src='/img/prom/zhhant2.png' width='300px' height='250px'></a></div>",2):1}();document.getElementById("bbottom-ad")&&(e+=1),document.getElementById("aaside-ad")&&(e+=1),e-=t;for(let t=0;t<e;t++)(window.adsbygoogle||[]).push({});var n=document.createElement("script");n.async=!0,n.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4738268347689706",n.crossOrigin="anonymous",document.head.appendChild(n)}))}let u=localStorage.getItem("tInfo");if(null!=u)u=JSON.parse(u);else{u={pv:Date.now(),pc:0,plv:0,psc:0};let e=localStorage.getItem("pv"),t=localStorage.getItem("pc");e&&(u.pv=parseInt(e)),t&&(u.pc=parseInt(t)),localStorage.removeItem("pv"),localStorage.removeItem("pc")}d(u.pv)>7&&(d(u.pv)<30?u.pv=function(){const e=new Date;return e.setHours(0,0,0,0),e.setDate(e.getDate()-7),e.getTime()}():(u.pv=Date.now(),u.pc=0)),u.pc+=1,g(u),async function(){let e=new URLSearchParams(window.location.search).get("re");if(e)o=e;else try{let e=await fetch("/api/geo"),t=await e.json();o=t.g}catch(e){o="en"}window.country=o,window.lang="zh-hant",o&&-1!=["at","be","bg","cy","ch","cz","de","dk","ee","es","fi","fr","gb","gr","hr","hu","ie","is","it","li","lt","lu","lv","mt","nl","no","pl","pt","ro","se","si","sk"].indexOf(o)&&(r=!0),n=!0;for(let e of l)e();for(let e of c)e()}(),information=t})();		</script>
+				
+	 <script>
+	 //(adsbygoogle=window.adsbygoogle||[]).pauseAdRequests = 1;
+	 </script>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4738268347689706" crossorigin="anonymous"></script>
+	 
+	</head>
+	<body>
+        <header>
+            <nav class="navbar navbar-expand navbar-expand-lg">
+                <div class="container-fluid justify-content-start menu-container">
+                    <a class="navbar-brand nav-desktop" href="/zh-hant/">
+                        <picture>
+                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 599px)"> 
+                            <img src="https://fical.net/img/logo4.png" width="60" height="60" alt="fical.net logo desktop" class="logo">
+                        </picture>
+                    </a>
+                    <div class="nav-desktop">
+                        <a class="nav-link" href="/zh-hant/%E8%A4%87%E5%88%A9%E8%A8%88%E7%AE%97%E6%A9%9F">複利計算機</a>
+                        <a class="nav-link" href="/zh-hant/%E5%87%B1%E5%88%A9%E5%85%AC%E5%BC%8F%E8%A8%88%E7%AE%97%E6%A9%9F">凱利公式計算機</a>
+                        <a class="nav-link" href="/zh-hant/%E8%82%A1%E7%A5%A8%E5%B9%B3%E5%9D%87%E5%83%B9%E6%A0%BC%E8%A8%88%E7%AE%97%E6%A9%9F">股票平均價計算機</a>
+                        
+                            <a class="nav-link" href="/zh-hant/">更多</a>
+                    </div>
+                    <div class="nav-mobile">
+                        <ul class="navbar-nav" id="button-calculator" onmouseover="tools.showDropDown('dropdown-calculator')" onmouseout="tools.hideDropDown('dropdown-calculator')">
+                            <li class="nav-item dropdown">
+                                <div class="p-2 menu-btn" ontouchstart="tools.showDropDown('dropdown-calculator');tools._preventOutClick(true)" role="button" aria-label="menu">
+                                    <svg class="svg-button">
+                                        <use href="/img/sprite5.svg#menu"></use>
+                                    </svg>
+                                </div>
+                                <ul class="dropdown-menu" id="dropdown-calculator">
+                                    <li><a class="dropdown-item" href="/zh-hant/%E8%A4%87%E5%88%A9%E8%A8%88%E7%AE%97%E6%A9%9F">複利計算機</a></li>
+                                    <li><a class="dropdown-item" href="/zh-hant/%E5%87%B1%E5%88%A9%E5%85%AC%E5%BC%8F%E8%A8%88%E7%AE%97%E6%A9%9F">凱利公式計算機</a></li>
+                                    <li><a class="dropdown-item" href="/zh-hant/%E8%82%A1%E7%A5%A8%E5%B9%B3%E5%9D%87%E5%83%B9%E6%A0%BC%E8%A8%88%E7%AE%97%E6%A9%9F">股票平均價計算機</a></li>
+                                    <li><div class="dropdown-divider"></div></li>
+                                    <li><a class="dropdown-item" href="/zh-hant/">更多</a></li>
+                                    <li><div class="dropdown-divider"></div></li>
+                                    <li><a class="dropdown-item" href="javascript:tools.showInquery();tools.hideDropDown('dropdown-calculator');tools._preventOutClick(false)">
+                                        <svg class="me-2" width="20" height="20">
+                                            <use href="/img/sprite5.svg#feedback"></use>
+                                        </svg>傳送意見
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="javascript:tools.showSettings();tools.hideDropDown('dropdown-calculator')">
+                                        <svg class="me-2" width="20" height="20">
+                                            <use href="/img/sprite5.svg#setting"></use>
+                                        </svg>貨幣設置
+                                    </a></li>
+                                    <li><div class="dropdown-divider"></div></li>
+                                    <li><a class="dropdown-item" href="javascript:tools.toggleTheme()">
+                                        <div class="me-2 dark-svg">
+                                            <svg width="20" height="20">
+                                                <use href="/img/sprite5.svg#sun"></use>
+                                            </svg>
+                                            淺色主題
+                                        </div>
+                                        <div class="me-2 light-svg">
+                                            <svg width="20" height="20">
+                                                <use href="/img/sprite5.svg#moon"></use>
+                                            </svg>
+                                            深色主題
+                                        </div>
+                                    </a></li>
+                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <a id="mobile-logo" class="navbar-brand nav-mobile" href="/zh-hant/">
+                        <picture>
+                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(min-width: 600px)"> 
+                            <img src="https://fical.net/img/logo5.png" width="176" height="44" alt="fical.net logo mobile" class="logo">
+                        </picture>
+                    </a>
+                    <div class="d-flex ms-auto">
+                        
+                        <div class="nav-desktop me-3">
+                            <div id="toggle-theme-button" class="btn toggle-theme-button" role="button" alt="toggle theme" onclick="tools.toggleTheme()">
+                                <svg width="20" height="20" class="light-svg">
+                                    <use href="/img/sprite5.svg#moon"></use>
+                                </svg>
+                                <svg width="20" height="20" class="dark-svg">
+                                    <use href="/img/sprite5.svg#sun"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dropdown" class="dropdown" onmouseover="tools.showDropDown('dropdown-language')" onmouseout="tools.hideDropDown('dropdown-language')">
+                            <div class="btn dropdown-toggle menu-btn" ontouchstart="tools.showDropDown('dropdown-language');tools._preventOutClick(true)" id="language-button" role="button" aria-label="change language">
+                                <svg class="svg-button">
+                                    <use href="/img/sprite5.svg#globe"></use>
+                                </svg>
+                            </div>
+                            <ul class="dropdown-menu dropdown-menu-right" id="dropdown-language">
+                                    <li><a class="dropdown-item" href="/en/kelly-criterion-calculator">English</a></li>
+                                    <li><a class="dropdown-item" href="/de/kelly-formel-rechner">Deutsch</a></li>
+                                    <li><a class="dropdown-item" href="/es/calculadora-de-criterio-de-kelly">Español</a></li>
+                                    <li><a class="dropdown-item" href="/fr/calculatrice-de-crit%C3%A8re-de-kelly">Français</a></li>
+                                    <li><a class="dropdown-item" href="/hi/%E0%A4%95%E0%A5%87%E0%A4%B2%E0%A5%80-%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0-%E0%A4%95%E0%A5%88%E0%A4%B2%E0%A4%95%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%B0">हिंदी</a></li>
+                                    <li><a class="dropdown-item" href="/it/calcolatore-criterio-kelly">Italiano</a></li>
+                                    <li><a class="dropdown-item" href="/ja/%E3%82%B1%E3%83%AA%E3%83%BC%E5%9F%BA%E6%BA%96%E3%82%B7%E3%83%A5%E3%83%9F%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">日本語</a></li>
+                                    <li><a class="dropdown-item" href="/ko/%EC%BC%88%EB%A6%AC-%EA%B3%B5%EC%8B%9D-%EA%B3%84%EC%82%B0%EA%B8%B0">한국어</a></li>
+                                    <li><a class="dropdown-item" href="/nl/kelly-criterium-berekenen">Nederlands</a></li>
+                                    <li><a class="dropdown-item" href="/pt/calculadora-de-crit%C3%A9rio-kelly">Português</a></li>
+                                    <li><a class="dropdown-item" href="/ru/%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80-%D0%BA%D1%80%D0%B8%D1%82%D0%B5%D1%80%D0%B8%D1%8F-%D0%9A%D0%B5%D0%BB%D0%BB%D0%B8">Pусский</a></li>
+                                    <li><a class="dropdown-item" href="/th/%E0%B8%84%E0%B8%B3%E0%B8%99%E0%B8%A7%E0%B8%93%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%84%E0%B8%A5%E0%B8%A5%E0%B8%B5%E0%B9%88">ไทย</a></li>
+                                    <li><a class="dropdown-item" href="/tr/kelly-kriteri-hesaplama">Türkçe</a></li>
+                                    <li><a class="dropdown-item" href="/vi/m%C3%A1y-t%C3%ADnh-c%C3%B4ng-th%E1%BB%A9c-Kelly">Tiếng Việt</a></li>
+                                    <li><a class="dropdown-item" href="/zh-hans/%E5%87%AF%E5%88%A9%E5%85%AC%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%99%A8">中文(简体)</a></li>
+                                    <li><a class="dropdown-item" href="/zh-hant/%E5%87%B1%E5%88%A9%E5%85%AC%E5%BC%8F%E8%A8%88%E7%AE%97%E6%A9%9F">中文(繁體)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+        </nav></header>		<div id="body-container">
+			<div id="notice">
+			</div>
+				<div class="no-ad-top"></div>
+			<div class="row2">
+				<div class="main-container p-0">
+					<main class="inner-container">
+                        <div class="p-main pt-2 pt-md-3">
+                                <div class="mb-2 mb-md-3">
+                                    
+                                    <div class="query" data-nosnippet>
+                                        <button class="btn btn-blue" onclick="tools.showSettings()">
+                                            <span class="img-center">
+                                                <svg class="me-2" width="20" height="20">
+                                                    <use href="/img/sprite5.svg#setting"></use>
+                                                </svg>
+                                                <span>貨幣設置</span>
+                                            </span>
+                                        </button>
+                                    </div>        </div>
+                            <h1>凱利公式計算機</h1>
+                            <div>
+                                <form onsubmit="return false;" autocomplete="off">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="probability">勝利概率 (%)</label>
+                                        <input type="text" data-type="percent" inputmode="decimal" id="probability" class="form-control" placeholder="%" value="60%">
+                                    </div>
+                                    <div class="mb-3 dark-green">
+                                        <label class="form-label" for="winrate">勝利時收益率 (%)</label>
+                                        <input type="text" data-type="percent" inputmode="decimal" id="winrate" class="form-control win" placeholder="%" value="30%">
+                                    </div>
+                                    <div class="mb-3 dark-red">
+                                        <label class="form-label" for="lossrate">失敗時損失率 (%)</label>
+                                        <input type="text" data-type="percent" inputmode="decimal" id="lossrate" class="form-control loss" placeholder="%" value="30%">
+                                    </div>
+                                    <div class="mb-3 mt-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="initial-balance-checkbox">
+                                            <label for="initial-balance-checkbox" id="initial-balance-label">
+                                                初始資本
+                                            </label>
+                                        </div>
+                                        <input type="text" data-type="num" inputmode="decimal" id="initial-balance" class="form-control" aria-labelledby="initial-balance-label" readonly="readonly">
+                                    </div>
+                                    <div>
+                                        <button type="button" data-type="submit" onclick="kelly.calculate();" class="btn btn-calculate">計算</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="p-main pt-2 pb-2 ps-0 pe-0 ad-large-mobile">
+                            <div>
+                                
+<div class="ad-large-mobile" style="width:100%;">
+     <div class="ad-large-mobile adsenseAd" style="width:100%;height:100px;text-align:center" data-nosnippet>
+          <ins class="adsbygoogle"
+               style="width:100%;max-width:320px;height:100px;max-height:100px"
+               data-ad-client="ca-pub-4738268347689706"
+               data-ad-slot="7944912045"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+     </div>
+</div>
+
+                            </div>
+                        </div>
+                        <div class="p-main pt-3 pb-3" id="kelly-result">
+                            <div class="justify-content-center text-center">
+                                <div>
+                                    <div class="fs-4">
+                                        最佳投資比重
+                                    </div>
+                                    <div>
+                                        <span id="optimal-proportion" class="fs-2">
+                                        </span>
+                        
+                                        
+                                    
+                                        <span id="optimal-balance-div" class="fs-5" style="display: none;">
+                                            (<span id="optimal-balance">
+                                            </span>)
+                                        </span>
+                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-main mt-3">
+                            <h5 class="mb-3">凱利模擬機</h5>
+                            <form onsubmit="return false;">
+                                <div class="mb-1">
+                                        <input type="text" data-type="num" style="width: 100px;display:inline-block" inputmode="numeric" id="count" class="form-control" value="1000"> 次
+                        
+                                        <button type="button" data-type="submit" onclick="kelly.simulate(true);" class="ms-2 btn btn-calculate">測試</button>
+                                </div>
+                            </form>
+                            <div id="simulate" class="justify-content-center text-center mt-2">
+                                <div>
+                                    勝利: <span id="winCount"></span>回 失敗: <span id="loseCount"></span>回 勝率: <span id="winRatio"></span>%
+                                </div>
+                                <canvas id="chart" style="max-width: 600px;"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="p-main p-0 ad-default">
+                            
+<div id="bbottom-ad" align="center" class="adsenseAd adsenseAd2" style="margin:0 auto;padding-top:8px;padding-bottom:8px" data-nosnippet>
+<ins class="adsbygoogle adsenseAd2"
+     style="display:block;min-width: 250px; width:100%;min-height: 250px;"
+     data-ad-client="ca-pub-4738268347689706"
+     data-ad-slot="4960965215"
+     data-ad-format="rectangle"
+     data-full-width-responsive="false"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+                        </div>
+                        <div class="p-main pt-3">
+                            <article>
+                                <nav class="fs-5 mb-5">
+                                    <h2>
+                                        目錄
+                                    </h2>
+                                    <ul class="noDot">
+                                        <li><a href="#usage">使用方法</a></li>
+                                        <li><a href="#whatisthis">凱利公式是</a></li>
+                                        <li><a href="#risks">危險性</a></li>
+                                        <li><a href="#usefulness">凱利公式的意義</a></li>
+                                        <li><a href="#formula">凱利公式</a></li>
+                                    </ul>
+                                </nav>
+                                <section id="usage">
+                                    <h2>
+                                        使用方法
+                                    </h2>
+                                    <p>
+                                        <strong>凱利公式計算機</strong>是一個尋找最佳投資比率的工具，這樣當您知道投資資產的勝率和利潤時，您將在重複投資時最大化利潤。
+                                    </p>
+                                    <ul class="circle ps-1">
+                                        <li><span class="bold">勝利概率</span> : 輸入獲得投資回報的概率。</li>
+                                        <li><span class="bold">勝利時收益率</span> : 輸入預期回報率。例如，如果您投資100並獲得10，則回報率為10%。</li>
+                                        <li><span class="bold">失敗時損失率</span> : 輸入預期損失率。例如，如果您投資100並損失10，則損失率為10%。</li>
+                                    </ul>
+                                    <p>
+                                        <strong>最佳投資比重</strong>是指資本的理想投資比例。 例如，如果是 50%，理想情況下您應該每次投入 50% 的資金。 另一方面，100%或更多意味著槓桿投資。
+                                    </p>
+                                </section>
+                                <section id="whatisthis">
+                                    <h2>
+                                        凱利公式是
+                                    </h2>
+                                    <p>
+                                        凱利公式是反覆投資金額時，爲了獲得最高收益率的理論公式。 按照凱利公式決定投資規模，理論上可以取得最大的成果。
+                                    </p>	
+                                </section>
+                                <section id="risks">
+                                    <h2>
+                                        危險性
+                                    </h2>
+                                    <p>
+                                        凱利公式明確要求在投資對象上獲得收益的概率及其大小。 但是，在現實的投資中，不可能完全預測這一點。使用凱利公式的話，即使概率稍微變化，最佳投資資產規模也會發生很大的變化。因此，<strong>不能只依靠凱利公式來決定投資。</strong>
+                                    </p>	
+                                </section>
+                                <section id="usefulness">
+                                    <h2>
+                                        凱利公式的意義
+                                    </h2>
+                                    <p>
+                                        凱利公式很有用，因為它表明您投資的資產的波動性越大，該資產的波動性就應該越大。 例如，即使您的盈虧比率相同，在 [勝利：+20%，失敗：-10%] 種情況下，投資金額也應比 [勝利：+10%，失敗：-5%] 種情況減少一半。
+                                    </p>
+                                </section>
+                                <section id="formula">
+                                    <h2>
+                                        凱利公式
+                                    </h2>
+                                    <div class="m-3">
+                                        <img src="https://fical.net/img/formula-kelly.png" width="190" height="81" alt="凱利公式" loading="lazy" class="formula">
+                                    </div>
+                                    <div>
+                                        <ul class="noDot">
+                                            <li><span class="bold">f</span> : 最佳投資比重</li>
+                                            <li><span class="bold">p</span> : 勝利概率</li>
+                                            <li><span class="bold">q</span> : 失敗概率 (<span class="bold">q = 1-p</span>)</li>
+                                            <li><span class="bold">a</span> : 失敗時損失率</li>
+                                            <li><span class="bold">b</span> : 勝利時收益率</li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </article>
+                        </div>					</main>
+				</div>
+				<div class="aside-container p-0">
+					<aside>
+								
+<div align="center" class="ad-ddesktop adsenseAd mb-5" data-nosnippet>
+<ins class="adsbygoogle"
+     style="display:block;max-width: 300px; min-height: 250px;height:250px;"
+     data-ad-client="ca-pub-4738268347689706"
+     data-ad-slot="1678272582"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+								
+<div id="aaside-ad" align="center" class="ad-ddesktop aaside-ad adsenseAd" data-nosnippet>
+<ins class="adsbygoogle"
+     style="display:block;max-width: 300px;height:600px;"
+     data-ad-client="ca-pub-4738268347689706"
+     data-ad-slot="4000440360"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+					</aside>
+				</div>
+			</div>
+		</div>
+		<div id="outside-click-blocker"></div>
+		<footer class="footer mt-3 py-3 text-center">
+		    <div>
+		        <address class="mb-0">
+		            <a class="img-center" href="mailto:contact@fical.net">
+		                <svg class="me-2" width="20" height="20">
+		                    <use href="/img/sprite5.svg#mail"></use>
+		                </svg>contact@fical.net
+		            </a>
+		        </address>
+		    </div>
+		    <div class="mb-3">
+		        <a class="img-center" href="javascript:tools.showInquery()">
+		            <svg class="me-2" width="20" height="20">
+		                <use href="/img/sprite5.svg#feedback"></use>
+		            </svg>傳送意見
+		        </a>
+		    </div>
+		    
+		    <div><a href="https://fical.net/zh-hant/privacy">隱私政策</a></div>
+		    <div>©2026 Fical.net</div>
+		    
+		</footer>			
+	<script>
+	 	//information.loadAds();
+		var adsAdsense;(()=>{"use strict";var e={};(e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})})(e),information.waitInit((()=>{information.isGDPR()&&localStorage.getItem("gdpr_allowed")})),adsAdsense=e})();
+	</script>
+		<script>
+                var kelly;(()=>{"use strict";var e={d:(t,n)=>{for(var o in n)e.o(n,o)&&!e.o(t,o)&&Object.defineProperty(t,o,{enumerable:!0,get:n[o]})},o:(e,t)=>Object.prototype.hasOwnProperty.call(e,t),r:e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})}},t={};e.r(t),e.d(t,{calculate:()=>lt,init:()=>at,onChartResize:()=>it,scrollFunc:()=>st,simulate:()=>rt});var n={};e.r(n),e.d(n,{getCurrency:()=>T,getFormat:()=>L,getLangBasedCurrency:()=>b,getLangBasedSeparator:()=>w,getPoint:()=>A,getSavedCurrency:()=>E,getSavedFormat:()=>S,getSeparator:()=>M,getSeparatorBasedPoint:()=>v,init:()=>$,saveCurrency:()=>C,saveFormat:()=>I,saveSettings:()=>B,setCurrency:()=>k,setSeparator:()=>x});var o={};e.r(o),e.d(o,{addCommas:()=>R,addCurrency:()=>V,addPaddingZeros:()=>F,floor:()=>q,getRoundCount:()=>O,isNumeric:()=>j,removeCommas:()=>H,removePaddingZeros:()=>D,round:()=>P,roundWithoutFixed:()=>N});var l={};e.r(l),e.d(l,{_preventOutClick:()=>ke,closeSticky:()=>$e,hideDropDown:()=>Te,init:()=>Ie,saveToImg:()=>Oe,saveToImg2:()=>Re,sendInquery:()=>Me,setTheme:()=>Ne,showDropDown:()=>xe,showInquery:()=>Ae,showSettings:()=>Be,toggleTheme:()=>Pe});let r=0;function i(e){if("undefined"!=typeof android&&"undefined"==typeof flutter){let t=android.showShortDialog(e.content,e.yesText||null,e.noText||null,e.cancelText||null);window.dialogCallback[t]={yes:e.yesCallback,no:e.noCallback,cancel:e.cancelCallback}}else if("undefined"!=typeof flutter){let t=r++,n={funcName:"showShortDialog",id:t,content:e.content};e.yesText&&(n.positive=e.yesText),e.noText&&(n.negative=e.noText),e.cancelText&&(n.cancel=e.cancelText),flutter.postMessage(JSON.stringify(n)),window.dialogCallback[t.toString()]={yes:e.yesCallback,no:e.noCallback,cancel:e.cancelCallback}}else c(e)}window.dialogCallback={},window.execDialogCallback=function(e,t,n=null){"yes"==t&&null!=window.dialogCallback[e].yes?window.dialogCallback[e].yes(n):"no"==t&&null!=window.dialogCallback[e].no?window.dialogCallback[e].no(n):"cancel"==t&&null!=window.dialogCallback[e].cancel&&window.dialogCallback[e].cancel(n),delete window.dialogCallback[e]};let a=0;function c(e){a+=1;let t="dialog-"+e.id;null!==document.getElementById(t)&&(document.body.removeChild(document.getElementById(t)),a--);let n="";void 0!==e.cancelCallback&&(n+=`<button id="${t}-cancel" class="me-3 btn btn-secondary dialog-cancel-btn">${e.cancelText}</button>`),void 0!==e.noCallback&&(n+=`<button id="${t}-no" class="btn me-1 btn-danger dialog-no-btn">${e.noText}</button>`),void 0!==e.yesCallback&&(n+=`<button id="${t}-yes" class="btn btn-success dialog-yes-btn">${e.yesText}</button>`);let o=document.createElement("div");o.setAttribute("id",t),o.setAttribute("class","dialog"),o.innerHTML=`\n<div class="mb-3">\n${e.content}\n</div>\n<div style="text-align:right">\n${n}\n</div>`,document.body.appendChild(o),y(!0),void 0!==e.cancelCallback&&document.getElementById(t+"-cancel").addEventListener("click",(()=>{!1!==e.cancelCallback()&&(document.body.removeChild(document.getElementById(t)),a--,0==a&&y(!1))})),void 0!==e.noCallback&&document.getElementById(t+"-no").addEventListener("click",(()=>{!1!==e.noCallback()&&(document.body.removeChild(document.getElementById(t)),a--,0==a&&y(!1))})),void 0!==e.yesCallback&&document.getElementById(t+"-yes").addEventListener("click",(()=>{!1!==e.yesCallback()&&(document.body.removeChild(document.getElementById(t)),a--,0==a&&y(!1))}))}let s,u,d,m,g,h,f=!1;function y(e){e?(setTimeout((()=>{f=!0}),100),document.getElementById("outside-click-blocker").style.display="block"):(f=!1,setTimeout((()=>{document.getElementById("outside-click-blocker").style.display="none";let e=document.getElementById("dropdown-calculator");e&&(e.style.display="none");let t=document.getElementById("dropdown-language");t&&(t.style.display="none")}),10));let t=window.event;t&&(t.stopPropagation(),t.preventDefault())}function p(){let e=navigator.languages?navigator.languages[0]:navigator.language||"";return e=e.toLowerCase(),e}function b(){let e=p(),t=JSON.parse("{\"cn\": \"元\", \"tw\": \"元\", \"hk\": \"元\", \"us\": \"$\"}"),n=information.getCountry();return n&&t[n]?t[n]:t[e]?t[e]:t[Object.keys(t)[0]]}function w(){let e=p(),t=JSON.parse("{\"us\": \",\"}"),n=information.getCountry();return n&&t[n]?t[n]:t[e]?t[e]:t[Object.keys(t)[0]]}function v(e){let t;return t=","!=e&&"'"!=e?",":".",t}function E(){return localStorage.getItem("currency-type")}function S(){return localStorage.getItem("currency-foramt")}function C(e){localStorage.setItem("currency-type",e)}function I(e){localStorage.setItem("currency-foramt",e)}function k(e){s=e,u=v(s)}function x(e){s=e,u=v(s)}function T(){return d}function A(){return u}function M(){return s}function L(){return m}function $(){d=E(),"Auto"!=d&&null!=d||(d=b()),m=S(),"Auto"!=m&&null!=m||(m="₹"!=d?w():"Indian"),s="Indian"!=m?m:",",u=v(s)}function B(e,t,n=null){C(e),I(t),i({id:"reloadDialog",content:"已儲存。如欲套用設定，須重新整理頁面。",yesText:"刷新",noText:"否",yesCallback:()=>{if(null==n)location.reload();else{let e=document.querySelector("link[rel='alternate'][hreflang='"+n+"']");null==e?location.reload():location.href=e.getAttribute("href")}},noCallback:()=>{}})}function P(e,t=0){return t>0?(Math.round(e*Math.pow(10,t))/Math.pow(10,t)).toFixed(t):Math.round(e).toString()}function N(e,t=0){return t>0?(Math.round(e*Math.pow(10,t))/Math.pow(10,t)).toString():Math.round(e).toString()}function q(e,t=0){return t>0?(Math.floor(e*Math.pow(10,t))/Math.pow(10,t)).toString():Math.floor(e).toString()}function O(e){let t=e.toString().split(".")[1];return t?t.length:0}function R(e,t=!1){if(0==t&&(","!=M()&&"'"!=M()&&(e=e.toString().replace(".",",")),/^[0-9]*[\.\,]?[0-9]+([eE][-+]?[0-9]+)$/.test(e)))return e;let n=new RegExp("[^0-9\\-\\"+A()+"]","g"),o=(e=e.replace(n,"")).split(A());return o.length>0&&(e="Indian"==L()&&-1==location.href.indexOf("/statistics/")?o[0].length>=4?o[0].slice(0,-3).replace(/\B(?=(\d{2})+(?!\d))/g,M())+M()+o[0].slice(-3):o[0]:o[0].replace(/\B(?=(\d{3})+(?!\d))/g,M())),o.length>=2&&(e=e+A()+o.slice(1).join("")),e}function H(e,t=!1){let n=new RegExp("[^0-9\\-\\"+A()+"]","g");return e=e.replace(n,""),0==t&&","!=M()&&"'"!=M()&&(e=e.replace(",",".")),e}function D(e){let t=e.split(A());if(t.length<2)return e;let n=t[0],o=t[1].replace(/0+$/,"");return o.length>0?n+A()+o:n}function F(e,t){let n=e.split(A());return n.length<2?e+A()+"0".repeat(t):n[1].length<t?n[0]+A()+n[1]+"0".repeat(t-n[1].length):e}function V(e,t=void 0){return null==t&&(t=T()),"円"==t||"元"==t?e+"<span class='small-currency'>"+t+"</span>":"₫"==t||"₽"==t?e+t:t+e}function j(e){return/^-?\d+$/.test(e)}document.getElementById("outside-click-blocker").addEventListener("click",(e=>{if(1==f){e.stopPropagation(),e.preventDefault(),y(!1);let t=document.getElementsByClassName("dialog");for(let e=0;e<t.length;e++){let n=t[e],o=n.querySelector(".dialog-cancel-btn"),l=n.querySelector(".dialog-no-btn"),r=n.querySelector(".dialog-yes-btn");o?o.click():l?l.click():r&&r.click()}}})),information.preWaitInit((()=>{$()}));let W=["Auto","$","€","¥","円","元"],z=[["Auto","Auto"],["1,234,567",","],["1.234.567","."],["1 234 567"," "],["12,34,567","Indian"]];function U(e){let t=e.target;g=t.value,G()}function _(e){let t=e.target;h=t.options[t.selectedIndex].value,G()}function J(){let e=b(),t=w(),n=g;"Auto"==n&&(n=e);let o=h;"Auto"==o&&(o="₹"!=n?t:"Indian");let l="1234567";for(let e=0;e<z.length;e++)if(z[e][1]==o){l=z[e][0];break}return V(l,n)}function G(){document.getElementById("currency-preview").innerHTML=J()}const Y=(()=>{let e=0;return()=>(e+=1,`u${`0000${(Math.random()*36**4|0).toString(36)}`.slice(-4)}${e}`)})();function Z(e){const t=[];for(let n=0,o=e.length;n<o;n++)t.push(e[n]);return t}function Q(e){return new Promise(((t,n)=>{const o=new Image;o.decode=()=>t(o),o.onload=()=>t(o),o.onerror=n,o.crossOrigin="anonymous",o.decoding="async",o.src=e}))}const X=(e,t)=>{if(e instanceof t)return!0;const n=Object.getPrototypeOf(e);return null!==n&&(n.constructor.name===t.name||X(n,t))};function K(e,t,n){const o=window.getComputedStyle(e,n),l=o.getPropertyValue("content");if(""===l||"none"===l)return;const r=Y();try{t.className=`${t.className} ${r}`}catch(e){return}const i=document.createElement("style");i.appendChild(function(e,t,n){const o=`.${e}:${t}`,l=n.cssText?function(e){const t=e.getPropertyValue("content");return`${e.cssText} content: '${t.replace(/'|"/g,"")}';`}(n):function(e){return Z(e).map((t=>`${t}: ${e.getPropertyValue(t)}${e.getPropertyPriority(t)?" !important":""};`)).join(" ")}(n);return document.createTextNode(`${o}{${l}}`)}(r,n,o)),t.appendChild(i)}const ee="application/font-woff",te="image/jpeg",ne={woff:ee,woff2:ee,ttf:"application/font-truetype",eot:"application/vnd.ms-fontobject",png:"image/png",jpg:te,jpeg:te,gif:"image/gif",tiff:"image/tiff",svg:"image/svg+xml",webp:"image/webp"};function oe(e){const t=function(e){const t=/\.([^./]*?)$/g.exec(e);return t?t[1]:""}(e).toLowerCase();return ne[t]||""}function le(e){return-1!==e.search(/^(data:)/)}function re(e,t){return`data:${t};base64,${e}`}async function ie(e,t,n){const o=await fetch(e,t);if(404===o.status)throw new Error(`Resource "${o.url}" not found`);const l=await o.blob();return new Promise(((e,t)=>{const r=new FileReader;r.onerror=t,r.onloadend=()=>{try{e(n({res:o,result:r.result}))}catch(e){t(e)}},r.readAsDataURL(l)}))}const ae={};async function ce(e,t,n){const o=function(e,t,n){let o=e.replace(/\?.*/,"");return n&&(o=e),/ttf|otf|eot|woff2?/i.test(o)&&(o=o.replace(/.*\//,"")),t?`[${t}]${o}`:o}(e,t,n.includeQueryParams);if(null!=ae[o])return ae[o];let l;n.cacheBust&&(e+=(/\?/.test(e)?"&":"?")+(new Date).getTime());try{const o=await ie(e,n.fetchRequestInit,(({res:e,result:n})=>(t||(t=e.headers.get("Content-Type")||""),function(e){return e.split(/,/)[1]}(n))));l=re(o,t)}catch(t){l=n.imagePlaceholder||"";let o=`Failed to fetch resource: ${e}`;t&&(o="string"==typeof t?t:t.message),o&&console.warn(o)}return ae[o]=l,l}const se=e=>null!=e.tagName&&"SLOT"===e.tagName.toUpperCase();async function ue(e,t,n){return n||!t.filter||t.filter(e)?Promise.resolve(e).then((e=>async function(e,t){return X(e,HTMLCanvasElement)?async function(e){const t=e.toDataURL();return"data:,"===t?e.cloneNode(!1):Q(t)}(e):X(e,HTMLVideoElement)?async function(e,t){if(e.currentSrc){const t=document.createElement("canvas"),n=t.getContext("2d");return t.width=e.clientWidth,t.height=e.clientHeight,null==n||n.drawImage(e,0,0,t.width,t.height),Q(t.toDataURL())}const n=e.poster,o=oe(n);return Q(await ce(n,o,t))}(e,t):X(e,HTMLIFrameElement)?async function(e){var t;try{if(null===(t=null==e?void 0:e.contentDocument)||void 0===t?void 0:t.body)return await ue(e.contentDocument.body,{},!0)}catch(e){}return e.cloneNode(!1)}(e):e.cloneNode(!1)}(e,t))).then((n=>async function(e,t,n){var o,l;let r=[];return r=se(e)&&e.assignedNodes?Z(e.assignedNodes()):X(e,HTMLIFrameElement)&&(null===(o=e.contentDocument)||void 0===o?void 0:o.body)?Z(e.contentDocument.body.childNodes):Z((null!==(l=e.shadowRoot)&&void 0!==l?l:e).childNodes),0===r.length||X(e,HTMLVideoElement)||await r.reduce(((e,o)=>e.then((()=>ue(o,n))).then((e=>{e&&t.appendChild(e)}))),Promise.resolve()),t}(e,n,t))).then((t=>function(e,t){return X(t,Element)&&(function(e,t){const n=t.style;if(!n)return;const o=window.getComputedStyle(e);o.cssText?(n.cssText=o.cssText,n.transformOrigin=o.transformOrigin):Z(o).forEach((l=>{let r=o.getPropertyValue(l);if("font-size"===l&&r.endsWith("px")){const e=Math.floor(parseFloat(r.substring(0,r.length-2)))-.1;r=`${e}px`}X(e,HTMLIFrameElement)&&"display"===l&&"inline"===r&&(r="block"),"d"===l&&t.getAttribute("d")&&(r=`path(${t.getAttribute("d")})`),"height"!=l&&"block-size"!=l&&"background-image"!=l&&n.setProperty(l,r,o.getPropertyPriority(l))}))}(e,t),function(e,t){K(e,t,":before"),K(e,t,":after")}(e,t),function(e,t){X(e,HTMLTextAreaElement)&&(t.innerHTML=e.value),X(e,HTMLInputElement)&&t.setAttribute("value",e.value)}(e,t),function(e,t){if(X(e,HTMLSelectElement)){const n=t,o=Array.from(n.children).find((t=>e.value===t.getAttribute("value")));o&&o.setAttribute("selected","")}}(e,t)),t}(e,t))).then((e=>async function(e,t){const n=e.querySelectorAll?e.querySelectorAll("use"):[];if(0===n.length)return e;const o={};for(let l=0;l<n.length;l++){const r=n[l].getAttribute("xlink:href");if(r){const n=e.querySelector(r),l=document.querySelector(r);n||!l||o[r]||(o[r]=await ue(l,t,!0))}}const l=Object.values(o);if(l.length){const t="http://www.w3.org/1999/xhtml",n=document.createElementNS(t,"svg");n.setAttribute("xmlns",t),n.style.position="absolute",n.style.width="0",n.style.height="0",n.style.overflow="hidden",n.style.display="none";const o=document.createElementNS(t,"defs");n.appendChild(o);for(let e=0;e<l.length;e++)o.appendChild(l[e]);e.appendChild(n)}return e}(e,t))):null}const de=/url\((['"]?)([^'"]+?)\1\)/g,me=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ge=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function he(e){return-1!==e.search(de)}async function fe(e,t,n){if(!he(e))return e;const o=function(e,{preferredFontFormat:t}){return t?e.replace(ge,(e=>{for(;;){const[n,,o]=me.exec(e)||[];if(!o)return"";if(o===t)return`src: ${n};`}})):e}(e,n),l=function(e){const t=[];return e.replace(de,((e,n,o)=>(t.push(o),e))),t.filter((e=>!le(e)))}(o);return l.reduce(((e,o)=>e.then((e=>async function(e,t,n,o,l){try{const r=n?function(e,t){if(e.match(/^[a-z]+:\/\//i))return e;if(e.match(/^\/\//))return window.location.protocol+e;if(e.match(/^[a-z]+:/i))return e;const n=document.implementation.createHTMLDocument(),o=n.createElement("base"),l=n.createElement("a");return n.head.appendChild(o),n.body.appendChild(l),t&&(o.href=t),l.href=e,l.href}(t,n):t,i=oe(t);let a;return a=l?re(await l(r),i):await ce(r,i,o),e.replace(function(e){const t=e.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1");return new RegExp(`(url\\(['"]?)(${t})(['"]?\\))`,"g")}(t),`$1${a}$3`)}catch(e){}return e}(e,o,t,n)))),Promise.resolve(o))}async function ye(e,t,n){var o;const l=null===(o=t.style)||void 0===o?void 0:o.getPropertyValue(e);if(l){const o=await fe(l,null,n);return t.style.setProperty(e,o,t.style.getPropertyPriority(e)),!0}return!1}async function pe(e,t){X(e,Element)&&(await async function(e,t){await ye("background",e,t)||await ye("background-image",e,t),await ye("mask",e,t)||await ye("mask-image",e,t)}(e,t),await async function(e,t){const n=X(e,HTMLImageElement);if((!n||le(e.src))&&(!X(e,SVGImageElement)||le(e.href.baseVal)))return;const o=n?e.src:e.href.baseVal,l=await ce(o,oe(o),t);await new Promise(((t,o)=>{e.onload=t,e.onerror=o;const r=e;r.decode&&(r.decode=t),"lazy"===r.loading&&(r.loading="eager"),n?(e.srcset="",e.src=l):e.href.baseVal=l}))}(e,t),await async function(e,t){const n=Z(e.childNodes).map((e=>pe(e,t)));await Promise.all(n).then((()=>e))}(e,t))}const be={};async function we(e){let t=be[e];if(null!=t)return t;const n=await fetch(e);return t={url:e,cssText:await n.text()},be[e]=t,t}async function ve(e,t){let n=e.cssText;const o=/url\(["']?([^"')]+)["']?\)/g,l=(n.match(/url\([^)]+\)/g)||[]).map((async l=>{let r=l.replace(o,"$1");return r.startsWith("https://")||(r=new URL(r,e.url).href),ie(r,t.fetchRequestInit,(({result:e})=>(n=n.replace(l,`url(${e})`),[l,e])))}));return Promise.all(l).then((()=>n))}function Ee(e){if(null==e)return[];const t=[];let n=e.replace(/(\/\*[\s\S]*?\*\/)/gi,"");const o=new RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");for(;;){const e=o.exec(n);if(null===e)break;t.push(e[0])}n=n.replace(o,"");const l=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi,r=new RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");for(;;){let e=l.exec(n);if(null===e){if(e=r.exec(n),null===e)break;l.lastIndex=r.lastIndex}else r.lastIndex=l.lastIndex;t.push(e[0])}return t}async function Se(e,t){const n=null!=t.fontEmbedCSS?t.fontEmbedCSS:t.skipFonts?null:await async function(e,t){const n=await async function(e,t){if(null==e.ownerDocument)throw new Error("Provided element is not within a Document");const n=Z(e.ownerDocument.styleSheets),o=await async function(e,t){const n=[],o=[];return e.forEach((n=>{if("cssRules"in n)try{Z(n.cssRules||[]).forEach(((e,l)=>{if(e.type===CSSRule.IMPORT_RULE){let r=l+1;const i=we(e.href).then((e=>ve(e,t))).then((e=>Ee(e).forEach((e=>{try{n.insertRule(e,e.startsWith("@import")?r+=1:n.cssRules.length)}catch(t){console.error("Error inserting rule from remote css",{rule:e,error:t})}})))).catch((e=>{console.error("Error loading remote css",e.toString())}));o.push(i)}}))}catch(l){const r=e.find((e=>null==e.href))||document.styleSheets[0];null!=n.href&&o.push(we(n.href).then((e=>ve(e,t))).then((e=>Ee(e).forEach((e=>{r.insertRule(e,n.cssRules.length)})))).catch((e=>{console.error("Error loading remote stylesheet",e)}))),console.error("Error inlining remote css file",l)}})),Promise.all(o).then((()=>(e.forEach((e=>{if("cssRules"in e)try{Z(e.cssRules||[]).forEach((e=>{n.push(e)}))}catch(t){console.error(`Error while reading CSS rules from ${e.href}`,t)}})),n)))}(n,t);return function(e){return e.filter((e=>e.type===CSSRule.FONT_FACE_RULE)).filter((e=>he(e.style.getPropertyValue("src"))))}(o)}(e,t);return(await Promise.all(n.map((e=>{const n=e.parentStyleSheet?e.parentStyleSheet.href:null;return fe(e.cssText,n,t)})))).join("\n")}(e,t);if(n){const t=document.createElement("style"),o=document.createTextNode(n);t.appendChild(o),e.firstChild?e.insertBefore(t,e.firstChild):e.appendChild(t)}}async function Ce(e,t={}){const n=await ue(e,t,!0);return await Se(n,t),await pe(n,t),function(e,t){const{style:n}=e;t.backgroundColor&&(n.backgroundColor=t.backgroundColor),t.width&&(n.width=`${t.width}px`),t.height&&(n.height=`${t.height}px`);const o=t.style;null!=o&&Object.keys(o).forEach((e=>{n[e]=o[e]}))}(n,t),n}function Ie(){const e=T();let t=document.getElementsByClassName("currency");for(let n=0;n<t.length;n++)t[n].innerHTML="("+e+")","円"==e||"元"==e?t[n].classList.remove("nobold"):t[n].classList.add("nobold");let n=document.getElementsByClassName("number");for(let e=0;e<n.length;e++)n[e].innerHTML=R(n[e].innerHTML);!function(){let e=setInterval((()=>{var t;1==window.storageAllowed&&(clearInterval(e),function(){let e=window.location.pathname.split("/");e.length>2&&saveCookie("lastLang",e[1],90)}(),t=1,localStorage.setItem("notice",t))}),1e3)}()}function ke(e){y(e)}function xe(e){document.getElementById(e).style.display="block"}function Te(e){document.getElementById(e).style.display="none"}function Ae(){let e=document.createElement("div");e.setAttribute("id","inquery"),e.innerHTML='\n<div class="form-group mb-3">\n<label for="inquery-content" class="form-label" style="font-size:18px">傳送意見</label>\n<textarea class="form-control" id="inquery-content" rows="12" placeholder="請以母語寫下對於網站的意見。&#10;如果您想回復，請同時輸入電子郵件地址。" maxlength="5000"></textarea>\n</div>\n<div style="text-align:right">\n<button id="cancel-inquery" class="btn btn-danger">取消</button> \n<button id="send-inquery" class="btn btn-success">傳送</button>\n</div>',document.body.appendChild(e),document.getElementById("body-container").classList.add("wait-agreement"),document.getElementById("cancel-inquery").addEventListener("click",Le),document.getElementById("send-inquery").addEventListener("click",(()=>{Me(document.getElementById("inquery-content").value)}))}function Me(e){if(e.length<10)return void i({id:"inqueryShortDialog",content:"請輸入10字以上。",yesText:"是",yesCallback:()=>{}});e+="\r\n"+location.href+"\r\n"+window.device+" "+window.model+"\r\n"+window.navigator.userAgent;let t=document.getElementById("cancel-inquery"),n=document.getElementById("send-inquery");t&&(t.disabled=!0),n&&(n.disabled=!0),"undefined"!=typeof flutter&&flutter.postMessage(JSON.stringify({funcName:"waitAsync"})),fetch("https://6jocy7l784.execute-api.us-east-1.amazonaws.com/Fical/inquery",{method:"POST",body:e}).then((e=>{t&&(t.disabled=!1),n&&(n.disabled=!1),"undefined"!=typeof flutter&&flutter.postMessage(JSON.stringify({funcName:"endAsync"})),403==e.status?i({id:"inqueryShortDialog",content:"短時間內傳送過多要求，請稍後重新嘗試。\n如為重要內容，請直接寄送郵件至contact@fical.net。 您發送的請求過多。 請稍後再試。",yesText:"是",yesCallback:()=>{}}):200!=e.status?i({id:"inqueryShortDialog",content:"要求傳送失敗，請稍後重新嘗試。",yesText:"是",yesCallback:()=>{}}):("undefined"!=typeof flutter&&flutter.postMessage(JSON.stringify({funcName:"inquerySended"})),i({id:"inqueryShortDialog",content:"已正常受理，感謝您提供意見。",yesText:"是",yesCallback:()=>{}}),Le())}))}function Le(){let e=document.getElementById("inquery");e&&(document.body.removeChild(e),document.getElementById("body-container").classList.remove("wait-agreement"))}function $e(){document.getElementById("sticky-ad-container").style.display="none"}function Be(){!function(){let e=E()||"Auto",t=S()||"Auto";g=e,h=t;let n=b();-1==W.indexOf(n)&&W.push(n),-1==W.indexOf(e)&&W.push(e);let o='\n<h4>貨幣設置</h4>\n<section class="mt-3">\n<h5>符號</h5>\n<div class="btn-group" role="group" id="currency-type">';for(let t=0;t<W.length;t++)o+=`\n<input type="radio" class="btn-check" name="btn-currency" id="btn-currency-${t}" value="${W[t]}" ${W[t]==e?"checked":""}>\n<label class="btn btn-outline-secondary" for="btn-currency-${t}">${W[t]}</label>\n`;o+='\n</div>\n</section>\n<section class="mt-3">\n<h5>記數法</h5>\n<select id="currency-format" class="form-select">';for(let e=0;e<z.length;e++)o+=`<option value="${z[e][1]}" ${z[e][1]==h?"selected":""}>${z[e][0]}</option>`;o+=`\n</select>\n</section>\n<section class="mt-3">\n<h5>預覽</h5>\n<div id="currency-preview">${J()}</div>\n</section>`,c({id:"settingDialog",content:o,yesText:"儲存",cancelText:"取消",yesCallback:()=>{B(g,h)},cancelCallback:()=>{}});let l=document.querySelectorAll("#currency-type input[type=radio]");for(let e=0;e<l.length;e++)l[e].addEventListener("change",U);document.getElementById("currency-format").addEventListener("change",_)}()}null==String.prototype.replaceAll&&(String.prototype.replaceAll=function(e,t){return this.split(e).join(t)}),window.version=1;{let e=[2830,512,4872,3597,1806,4627,3328,3076],t="";for(let n=0;n<e.length;n++)t+=String.fromCharCode(97+(e[n]>>8)),t+=String.fromCharCode(97+(255&e[n]));let n=t.substring(0,8),o=t.substring(8,16),l=window[n][o].split("."),r=l.length,i=l[r-2]+l[r-1],a=0,c=0;for(let e=0;e<i.length;e++){let t=i.charCodeAt(e);a+=t,c^=t}838==a&&30==c||["click","touchstart","input"].forEach((e=>{document.addEventListener(e,(e=>(e.stopPropagation(),e.preventDefault(),!1)),!0)}))}function Pe(){let e="dark";"dark"==document.documentElement.getAttribute("data-bs-theme")&&(e="light"),document.documentElement.setAttribute("data-bs-theme",e),window.storageAllowed&&localStorage.setItem("theme",e)}function Ne(e){document.documentElement.setAttribute("data-bs-theme",e)}function qe(e){return new Promise((t=>{const n=new Image;return n.addEventListener("load",(()=>{t(n)})),n.src=e,n}))}function Oe(e){e.setAttribute("disabled","disabled"),document.querySelectorAll("[data-sc='2']")[0].clientHeight>4e3?c({id:"inquerySaveImgShortDialog",content:"計算結果有很多。您確定要下載嗎？<br><br>它不使用任何網路數據，但創建圖像需要大量計算，並且<strong>可能會導致螢幕凍結</strong>。",yesText:"是",cancelText:"取消",yesCallback:()=>{Re(e)},cancelCallback:()=>{e.removeAttribute("disabled")}}):setTimeout((()=>{Re(e)}),0)}function Re(e){let t=document.querySelectorAll("[data-sc='1']"),n=document.querySelectorAll("[data-sc='2']")[0];n.setAttribute("style","min-width:max-content;overflow:visible");let o=document.getElementById("table-footer");if(o&&(o.innerHTML=""),n.clientWidth>t[0].clientWidth){let e=n.clientWidth+24+"px";for(let n=0;n<t.length;n++)t[n].setAttribute("style","width: "+e)}var l=e=>!(e.tagName&&"IMG"==e.tagName||e.getAttribute&&"3"==e.getAttribute("data-sc"));let r=[],i=0,a=0;for(let e=0;e<t.length;e++)r.push(Ce(t[e],{filter:l})),i=t[e].clientWidth,a+=t[e].clientHeight;a+=1e3,Promise.all(r).then((o=>{const l="http://www.w3.org/2000/svg",r=document.createElementNS(l,"svg"),c=document.createElementNS(l,"foreignObject");r.setAttribute("width",`${i}`),r.setAttribute("height",`${a}`),r.setAttribute("viewBox",`0 0 ${i} ${a}`),c.setAttribute("width","100%"),c.setAttribute("height","100%"),c.setAttribute("x","0"),c.setAttribute("y","0"),c.setAttribute("externalResourcesRequired","true"),r.appendChild(c);for(let e=0;e<o.length;e++)c.appendChild(o[e]);return Promise.resolve().then((()=>(new XMLSerializer).serializeToString(r))).then(encodeURIComponent).then((e=>`data:image/svg+xml;charset=utf-8,${e}`)).then((o=>{let l=qe("/img/logo5.png"),r=qe(o);return Promise.all([l,r]).then((o=>{let l=o[0],r=o[1],c=document.createElement("canvas"),s=c.getContext("2d");c.width=i,c.height=a,s.beginPath(),s.drawImage(r,0,0,i,a);let u=s.getImageData(0,0,c.width,c.height).data,d=c.height;for(let e=0;e<c.height;e++){var m=i*e+0;if(0==u[4*m]+u[4*m+1]+u[4*m+2]+u[4*m+3]){d=e;break}}d-=5;let g=document.querySelector("#table-container"),h=window.getComputedStyle(g).getPropertyValue("padding-bottom"),f=l.height/5,y=f+24-parseInt(h.replace("px",""));y<0&&(y=0),c.height=d+y,s.clearRect(0,0,c.width,c.height),s.fillStyle=`rgba(${u[0]}, ${u[1]}, ${u[2]}, ${u[3]})`,s.fillRect(0,0,c.width,c.height),s.drawImage(r,0,0,r.width,d,0,0,r.width,d),"dark"==document.getElementsByTagName("HTML")[0].getAttribute("data-bs-theme")&&(s.filter="brightness(1.9) opacity(0.7)"),s.drawImage(l,0,0,l.width,l.height,c.width-l.width/5-10,c.height-f-12,l.width/5,f),s.filter="none",n.setAttribute("style","");for(let e=0;e<t.length;e++)t[e].setAttribute("style","");var p=document.createElement("a");p.download="compound.png",p.href=c.toDataURL("image/png"),p.click(),e.removeAttribute("disabled")})),o}))}))}let He={},De=null,Fe=[];function Ve(){let e=document.documentElement.getAttribute("data-bs-theme"),t=He.options.scales,n="rgba(0,0,0,0.1)",o="#666";if("dark"==e&&(n="rgba(255,255,255,0.1)",o="#bbb"),t.x.border.color=n,t.x.grid.color=n,t.x.ticks.color=o,t.x.title.color=o,t.y.border.color=n,t.y.grid.color=n,t.y.ticks.color=o,t.y.title.color=o,null==De||null==De){let e=document.getElementById("chart").getContext("2d");De=new Chart(e,He)}else De.update()}new MutationObserver((function(e){e.forEach((function(e){"attributes"===e.type&&"data-bs-theme"==e.attributeName&&Ve()}))})).observe(document.documentElement,{attributes:!0});class je{constructor(e){this.dom=null,this.dom=document.getElementById(e),j(this.value)&&this.dom!==document.activeElement&&(this.value=R(this.value,!0));let t=this.dom.getAttribute("placeholder");t&&j(t)&&this.dom.setAttribute("placeholder",R(t,!0)),this.addEventListener("input",(()=>{!function(e){let t=function(e){let t=-1,n=-1;return t=e.dom.selectionStart,n=e.dom.selectionEnd,{start:t,end:n}}(e),n=t.start,o=t.end,l=A(),r=e.value;r=r.replaceAll(".",l),r=r.replaceAll(",",l),r.substring(1).split(l).length>2&&n>=1&&r[n-1]==l&&(r=r.substring(0,n-1)+r.substring(n,r.length),n-=1,o-=1);let i=r.length;if(i>0){let t=r[0].replace(/[^\-\d.,]/g,""),a=r.substring(1).replace(/[^\d.,]/g,"");a=a.replaceAll(".",l),a=a.replaceAll(",",l),r=t+a;let c=i-r.length;c>0&&(1==n&&1==o?n=o=0==t.length?0:1:(n-=c,o-=c)),e.value=r,function(e,t,n){e.dom.selectionStart=t,e.dom.selectionEnd=n}(e,n,o)}}(this)})),this.addEventListener("keypress",(e=>{if("Enter"==e.key){this.dom.blur();let e=this.dom.closest("form");if(e){let t=e.querySelector("button[data-type=submit]");t&&t.click()}}})),this.addEventListener("focusin",(()=>{"num"==this.type?this.value=H(this.value,!0):"percent"==this.type&&(this.value=H(this.value.replace("%",""),!0))})),this.addEventListener("focusout",(()=>{"num"==this.type?this.value=R(this.value,!0):"percent"==this.type&&(this.value=R(this.value,!0)+"%")}))}set realValue(e){"num"==this.type?this.value=R(e.toString()):"percent"==this.type&&(this.value=R(e.toString())+"%")}get realValue(){return Number(H(this.value.replace("%","")))}set value(e){this.dom.value=e}get value(){return this.dom.value}get type(){return this.dom.getAttribute("data-type")}addEventListener(e,t){this.dom.addEventListener(e,t)}}const We=Math.PI,ze=Math.PI/2,Ue={linear:e=>e,fastInSlowOut:e=>Math.sin(ze*e),slowInFastOut:e=>Math.cos(ze*e+We)+1,slowInSlowOut:e=>.5*(Math.cos(e*We+We)+1)};let _e,Je,Ge,Ye,Ze,Qe=new class{calculate(e,t,n){let o=e/n-(1-e)/t;return o<0||isNaN(o)?0:o}simulate2(e,t,n,o){let l=[],r=Math.max(Math.floor(o),1);for(let i=0;i<200*o;i+=r){let o=1,r=e.length;for(let l=0;l<r;l++){let r=o*i/100,a=0;a=e[l]?r*t:-r*n,o+=a,o<0&&(o=0)}l.push(100*(o-1))}return{gap:r,result:l}}},Xe=0,Ke=0,et=0,tt=0,nt=!1,ot=document.getElementById("initial-balance-checkbox");function lt(){Xe=_e.realValue/100,Ke=Je.realValue/100,et=Ge.realValue/100,tt=Qe.calculate(Xe,Ke,et);let e=document.getElementById("optimal-proportion");if(tt==Number.POSITIVE_INFINITY)e.innerHTML="∞%";else{let t=R((Math.round(1e4*tt)/100).toString())+"%";e.innerHTML=t}let t=document.getElementById("optimal-balance-div");ot.checked?t.style.display="":t.style.display="none",function(){let e="";e=tt==Number.POSITIVE_INFINITY?"∞":tt==Number.NEGATIVE_INFINITY?"0":R((Math.round(Ze.realValue*tt*100)/100).toString()),document.getElementById("optimal-balance").innerHTML=V(e)}(),rt(!1),st("optimal-proportion")}function rt(e){nt=e;let t=Ye.realValue,n=function(e,t){let n=Array(t);for(let o=0;o<t;o++)n[o]=Math.random()<e;return n}(Xe,t),o=0,l=0;for(let e=0;e<n.length;e++)n[e]?o++:l++;document.getElementById("winCount").innerHTML=o.toString(),document.getElementById("loseCount").innerHTML=l.toString(),document.getElementById("winRatio").innerHTML=R((Math.round(o/n.length*1e4)/100).toString());let r=document.getElementById("simulate");nt&&"block"==r.style.display&&st("chart"),document.getElementById("simulate").style.display="block";let i=Qe.simulate2(n,Ke,et,tt);!function(e,t){Fe=Array(t.length);for(let n=0;n<t.length;n++)Fe[n]=Math.round(e*n);He.data.datasets[0].data=t,He.data.labels=Fe,De.update()}(i.gap,i.result)}function it(e,t){nt&&st("chart")}function at(){_e=new je("probability"),Je=new je("winrate"),Ge=new je("lossrate"),Ye=new je("count"),Ze=new je("initial-balance"),Ie(),function(e,t){He={type:"line",data:{labels:[],datasets:[{label:e.return,data:[],backgroundColor:["#19875430"],borderColor:["#19875480"],borderWidth:2,pointRadius:0}]},options:{locale:"en-US",plugins:{legend:{display:!1},tooltip:{mode:"index",intersect:!1,displayColors:!1,callbacks:{title:function(t){return e.proportion+": "+t[0].label+"%"},label:function(e){let t=e.raw;return t=R(Math.round(t).toString()),e.dataset.label+": "+t+"%"}}},animation:{duration:500}},scales:{x:{title:{display:!0,text:e.proportion},ticks:{callback:function(e,t,n){return Fe[t]+"%"}},grid:{},border:{}},y:{ticks:{callback:function(e,t,n){let o=e.toString().split("e+");if(o.length>=2){let e=Math.round(o[0]),t=o[1];return 10==e?e=1:t=parseInt(o[1])+1,e+"e+"+t+"%"}return R(e.toString())+"%"}},type:"logarithmic",title:{display:!0,text:e.return},grid:{},border:{}}},onResize:t}};var n=document.createElement("script");n.onload=function(){Ve()},n.defer=!0,n.src="https://cdn.jsdelivr.net/npm/chart.js",document.head.appendChild(n)}({return:"收益率",proportion:"投資比重"},it);let e=T();Ze.dom.setAttribute("placeholder",e)}ot.addEventListener("change",(e=>{ot.checked?Ze.dom.readOnly=!1:Ze.dom.readOnly=!0}));let ct=screen.height;function st(e){if(window.innerWidth<768)if("app"==window.mode)document.getElementById(e).scrollIntoView({behavior:"smooth",inline:"center",block:"center"});else{let t=document.getElementById(e),n=t.getBoundingClientRect();!function(e,{duration:t=0,easingFunction:n=Ue.fastInSlowOut,offsetTop:o=0,offsetLeft:l=0}={}){const r=e.getBoundingClientRect();!function({top:e,left:t,duration:n=0,element:o=document.scrollingElement,easingFunction:l=Ue.fastInSlowOut}){const r=o.scrollTop,i=o.scrollLeft;if(e=Math.max(0,Math.min(o.scrollHeight-o.clientHeight,e)),t=Math.max(0,Math.min(o.scrollWidth-o.clientWidth,t)),r===e&&i===t)return;const a=e-r,c=t-i;let s=0,u=null;function d(e){s+=(e-u)/n,s=Math.min(s,1);const t=l(s);o.scroll({top:r+t*a,left:i+t*c,behavior:"instant"}),s>=1||(u=e,window.requestAnimationFrame(d))}window.requestAnimationFrame((e=>{u=e,window.requestAnimationFrame(d)}))}({top:document.scrollingElement.scrollTop+Math.round(r.top)+o,left:document.scrollingElement.scrollLeft+Math.round(r.left)+l,duration:t,easingFunction:n})}(t,{duration:500,offsetTop:-(window.innerHeight/2-n.height/2),easingFunction:Ue.slowInSlowOut})}}document.addEventListener("load",(()=>{ct=document.documentElement.clientHeight})),window.settings=n,window.tools=l,window.numeric=o,kelly=t})();				information.waitInit(() => {
+			    	kelly.init();
+				});
+		</script>
+			
+	<script>
+		var cmp;(()=>{"use strict";var e={};(e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})})(e),information.waitInit((()=>{window.storageAllowed=!1;let e=!1;function t(){if(e)return;e=!0;let t="GTM-WBVXJF6";"app"==window.mode&&(t="GTM-M35KHXD"),function(e,t,o,n,a){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var l=t.getElementsByTagName(o)[0],r=t.createElement(o);r.async=!0,r.src="https://www.googletagmanager.com/gtm.js?id="+a,l.parentNode.insertBefore(r,l)}(window,document,"script","dataLayer",t)}if("us"==information.getCountry())window.storageAllowed=!0,t();else if(information.isGDPR()){function o(){let e=0;const t=setInterval((()=>{"function"==typeof window.__tcfapi&&(clearInterval(t),__tcfapi("addEventListener",2,((e,t)=>{!function(e){let t=e.publisher.consents;"undefined"!=typeof android&&null!=android.tcf&&"undefined"==typeof flutter&&android.tcf(e.gdprApplies?1:0,e.tcString),"useractioncomplete"==e.eventStatus&&information.isGDPR()&&null==localStorage.getItem("gdpr_allowed")&&(t[1]?localStorage.setItem("gdpr_allowed",1):localStorage.setItem("gdpr_allowed",0)),e.gdprApplies?t[1]&&(window.storageAllowed=!0,t[8]&&t[10]):window.storageAllowed=!0}(e)}))),e+=100,e>1e4&&clearInterval(t)}),100)}o(),t()}else window.storageAllowed=!0,t()})),cmp=e})();
+	</script>
+		
+	</body>
+</html>
